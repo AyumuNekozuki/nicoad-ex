@@ -1,6 +1,10 @@
 {
     "name": "ニコニ広告ex.",
-    "version": "1.0",
+    "version": "1.0.0",
     "description": "ニコニコ生放送内のニコニ広告をギフトのようにコメント欄に表示させます。",
-    "manifest_version": 2
+    "manifest_version": 2,
+    "content_scripts": [{
+        "matches": ["https://live2.nicovideo.jp/watch/*"],
+        "js": ["script.js"]
+    }]
 }
