@@ -1,0 +1,6 @@
+{
+    "name": "ニコニ広告ex.",
+    "version": "1.0",
+    "description": "ニコニコ生放送内のニコニ広告をギフトのようにコメント欄に表示させます。",
+    "manifest_version": 2
+}
