@@ -1,4 +1,4 @@
-# nicolive-iframe-nicoad
+# nicoad-ex.
 Chrome拡張です。
 ニコニコ生放送のニコニ広告をポップアップではなく、コメント欄に表示させます。
 ギフトみたいな感じで。
