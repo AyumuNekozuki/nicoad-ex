@@ -4,25 +4,21 @@ function goscript() {
     console.log("ニコニ広告ex.: " + liveID);
     console.log("ニコニ広告ex.: debug move 01");
 
-    //2 従来nicoadにid付与
-    var tmp2 = document.getElementsByClassName("___item___12Isv");
-    var val2 = "nicoadid";
-    tmp2[1].setAttribute("id", val2);
+    //2 従来nicoadにid付与 bug
+    var tmp = document.getElementsByClassName("___item___12Isv");
+    tmp[1].setAttribute("id", "nicoadid");
     console.log("ニコニ広告ex.: debug move 02");
 
     //3 従来nicoadボタン削除
-    var tmp3 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
-    var val3 = "offitemarea";
-    tmp3[0].setAttribute("id", val3);
+    var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
+    tmp2[0].setAttribute("id", "offitemarea");
     console.log("ニコニ広告ex.: debug move 03");
     var removenicoad = document.getElementById('offitemarea');
     offitemarea.removeChild(nicoadid);
     console.log("ニコニ広告ex.: debug move 04");
 
     //4 giftにid付与
-    var tmp = document.getElementsByClassName("___item___12Isv");
-    var val = "giftid";
-    tmp[0].setAttribute("id", val);
+    tmp[0].setAttribute("id", "giftid");
     console.log("ニコニ広告ex.: debug move 05");
 
     //5 add button & image
@@ -38,12 +34,16 @@ function goscript() {
     objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
     console.log("ニコニ広告ex.: debug move 06");
 
+    //-- change aria-lavel
+    document.getElementById("nicoadex").setAttribute("aria-label", "ニコニ広告ex.");
+
     //6 ボタンクリック時
     document.getElementById("nicoadex").onclick = function () {
         //giftに偽のクリックアクション
         document.getElementById('giftid').click();
         //iframe url replace
-        document.getElementById('RICH-IFRAME').contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + liveID + '?frontendId=12');
+        var iframe = document.getElementById('RICH-IFRAME');
+        iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + liveID + '?frontendId=12');
     };
     console.log("ニコニ広告ex.: debug move 01-06 complete");
 }
