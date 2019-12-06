@@ -1,25 +1,38 @@
-function goscript() {
-    //1 get liveID
-    var liveID = location.pathname.slice(7, 18);
-    console.log("ニコニ広告ex.: " + liveID);
-    console.log("ニコニ広告ex.: debug move 01");
+//1 get movieID
+var nicoID = location.pathname.slice(7, 18);
+var type = nicoID.slice(0,2);
+console.log("ニコニ広告ex.: ID = " + nicoID);
 
+//分岐
+if (type == "sm"){
+    console.log("ニコニ広告ex.: type = ニコニコ動画");
+    setTimeout(videoscript(), 3000);
+}
+if (type == "lv"){
+    console.log("ニコニ広告ex.: type = ニコニコ生放送");
+    setTimeout(livescript(), 3000);
+}
+
+//ニコ動
+function videoscript() {
+    //うまく行かない
+}
+
+
+//ニコ生
+function livescript() {
     //2 従来nicoadにid付与 bug
     var tmp = document.getElementsByClassName("___item___12Isv");
     tmp[1].setAttribute("id", "nicoadid");
-    console.log("ニコニ広告ex.: debug move 02");
 
     //3 従来nicoadボタン削除
     var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
     tmp2[0].setAttribute("id", "offitemarea");
-    console.log("ニコニ広告ex.: debug move 03");
     var removenicoad = document.getElementById('offitemarea');
-    offitemarea.removeChild(nicoadid);
-    console.log("ニコニ広告ex.: debug move 04");
+    removenicoad.removeChild(nicoadid);
 
     //4 giftにid付与
     tmp[0].setAttribute("id", "giftid");
-    console.log("ニコニ広告ex.: debug move 05");
 
     //5 add button & image
     var nicoadex = document.createElement('button');
@@ -32,7 +45,6 @@ function goscript() {
     nicoadeximg.alt = "ニコニ広告ex."
     var objitemarea = document.getElementsByClassName("___official-locked-item-area___wS6uH").item(0);
     objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
-    console.log("ニコニ広告ex.: debug move 06");
 
     //-- change aria-lavel
     document.getElementById("nicoadex").setAttribute("aria-label", "ニコニ広告ex.");
@@ -43,9 +55,7 @@ function goscript() {
         document.getElementById('giftid').click();
         //iframe url replace
         var iframe = document.getElementById('RICH-IFRAME');
-        iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + liveID + '?frontendId=12');
+        iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID + '?frontendId=12');
     };
     console.log("ニコニ広告ex.: debug move 01-06 complete");
 }
-
-setTimeout("goscript()", 3000);
