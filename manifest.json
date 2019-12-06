@@ -4,7 +4,7 @@
     "description": "ニコニコ生放送内のニコニ広告をギフトのようにコメント欄に表示させます。",
     "manifest_version": 2,
     "content_scripts": [{
-        "matches": ["https://live2.nicovideo.jp/watch/*"],
+        "matches": ["https://live2.nicovideo.jp/watch/*", "https://www.nicovideo.jp/watch/*"],
         "js": ["script.js","jquery-3.4.1.min.js"]
     }],
     "icons": {

@@ -1,17 +1,22 @@
-//1 get movieID
-var nicoID = location.pathname.slice(7, 18);
-var type = nicoID.slice(0,2);
-console.log("ニコニ広告ex.: ID = " + nicoID);
+setTimeout("getID()", 3000);
 
-//分岐
-if (type == "sm"){
-    console.log("ニコニ広告ex.: type = ニコニコ動画");
-    setTimeout(videoscript(), 3000);
+function getID() {
+    //1 get movieID
+    var nicoID = location.pathname.slice(7, 18);
+    var type = nicoID.slice(0, 2);
+    console.log("ニコニ広告ex.: ID = " + nicoID);
+
+    //分岐
+    if (type == "sm") {
+        console.log("ニコニ広告ex.: type = ニコニコ動画");
+        videoscript();
+    }
+    if (type == "lv") {
+        console.log("ニコニ広告ex.: type = ニコニコ生放送");
+        livescript();
+    }
 }
-if (type == "lv"){
-    console.log("ニコニ広告ex.: type = ニコニコ生放送");
-    setTimeout(livescript(), 3000);
-}
+
 
 //ニコ動
 function videoscript() {
@@ -21,6 +26,8 @@ function videoscript() {
 
 //ニコ生
 function livescript() {
+    var nicoID = location.pathname.slice(7, 18);
+    
     //2 従来nicoadにid付与 bug
     var tmp = document.getElementsByClassName("___item___12Isv");
     tmp[1].setAttribute("id", "nicoadid");
