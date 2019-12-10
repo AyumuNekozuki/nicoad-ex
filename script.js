@@ -73,7 +73,7 @@ function videoscript() {
 function livescript() {
     var nicoID = location.pathname.slice(7, 18);
 
-    //2 従来nicoadにid付与 bug
+    //2 従来nicoadにid付与
     var tmp = document.getElementsByClassName("___item___12Isv");
     tmp[1].setAttribute("id", "nicoadid");
 
