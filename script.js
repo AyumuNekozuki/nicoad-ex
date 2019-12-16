@@ -41,7 +41,7 @@ function videoscript() {
     nicoadex.className = "ActionButton VideoMenuContainer-button";
     var nicoadeximg = document.createElement('img');
     nicoadeximg.style = "width: 30px; height:30px;"
-    nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon.png?raw=true";
+    nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_video.png?raw=true";
     nicoadeximg.alt = "ニコニ広告ex."
     var objitemarea = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline").item(6);
     objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
@@ -94,7 +94,7 @@ function livescript() {
     nicoadex.type = "button";
     var nicoadeximg = document.createElement('img');
     nicoadeximg.className = "___item-image___2Py-3";
-    nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon.png?raw=true";
+    nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_live.png?raw=true";
     nicoadeximg.alt = "ニコニ広告ex."
     var objitemarea = document.getElementsByClassName("___official-locked-item-area___wS6uH").item(0);
     objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
