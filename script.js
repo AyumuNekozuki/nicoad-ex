@@ -23,30 +23,59 @@ function getID() {
 
 //ニコ動
 function videoscript() {
-    //2 従来nicoadにid付与
-    var tmp = document.getElementsByClassName("ActionButton UadButton VideoMenuContainer-button");
-    tmp[0].setAttribute("id", "nicoadid");
+    try {
+        //2 従来nicoadにid付与
+        var tmp = document.getElementsByClassName("ActionButton UadButton VideoMenuContainer-button");
+        tmp[0].setAttribute("id", "nicoadid");
 
-    //3 従来nicoadボタン削除
-    var tmp2 = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline");
-    tmp2[6].setAttribute("id", "offitemarea");
-    var removenicoad = document.getElementById('offitemarea');
-    removenicoad.removeChild(nicoadid);
+        //3 従来nicoadボタン削除
+        var tmp2 = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline");
+        tmp2[6].setAttribute("id", "offitemarea");
+        var removenicoad = document.getElementById('offitemarea');
+        removenicoad.removeChild(nicoadid);
 
-    //4 mylistにid付与
-    var tmp3 = document.getElementsByClassName("ActionButton VideoMenuContainer-button");
-    tmp3[1].setAttribute("id", "mylistid");
+        //4 mylistにid付与
+        var tmp3 = document.getElementsByClassName("ActionButton VideoMenuContainer-button");
+        tmp3[1].setAttribute("id", "mylistid");
 
-    //5 広告ex.ボタン・画像追加
-    var nicoadex = document.createElement('button');
-    nicoadex.id = "nicoadex";
-    nicoadex.className = "ActionButton VideoMenuContainer-button";
-    var nicoadeximg = document.createElement('img');
-    nicoadeximg.style = "width: 30px; height:30px;"
-    nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_video.png?raw=true";
-    nicoadeximg.alt = "ニコニ広告ex."
-    var objitemarea = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline").item(6);
-    objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
+        //5 広告ex.ボタン・画像追加
+        var nicoadex = document.createElement('button');
+        nicoadex.id = "nicoadex";
+        nicoadex.className = "ActionButton VideoMenuContainer-button";
+        var nicoadeximg = document.createElement('img');
+        nicoadeximg.style = "width: 30px; height:30px;"
+        nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_video.png?raw=true";
+        nicoadeximg.alt = "ニコニ広告ex."
+        var objitemarea = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline").item(6);
+        objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
+
+    } catch{
+        //2 従来nicoadにid付与
+        var tmp = document.getElementsByClassName("ActionButton UadButton VideoMenuContainer-button");
+        tmp[0].setAttribute("id", "nicoadid");
+
+        //3 従来nicoadボタン削除
+        var tmp2 = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline");
+        tmp2[5].setAttribute("id", "offitemarea");
+        var removenicoad = document.getElementById('offitemarea');
+        removenicoad.removeChild(nicoadid);
+
+        //4 mylistにid付与
+        var tmp3 = document.getElementsByClassName("ActionButton VideoMenuContainer-button");
+        tmp3[1].setAttribute("id", "mylistid");
+
+        //5 広告ex.ボタン・画像追加
+        var nicoadex = document.createElement('button');
+        nicoadex.id = "nicoadex";
+        nicoadex.className = "ActionButton VideoMenuContainer-button";
+        var nicoadeximg = document.createElement('img');
+        nicoadeximg.style = "width: 30px; height:30px;"
+        nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_video.png?raw=true";
+        nicoadeximg.alt = "ニコニ広告ex."
+        var objitemarea = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline").item(5);
+        objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
+    }
+
 
     //-- ラベル変更
     document.getElementById("nicoadex").setAttribute("data-label", "ニコニ広告ex.");
