@@ -1,7 +1,5 @@
-setInterval("checkliveichiba()", 1000);
-
-setTimeout("getID()", 1000);
-
+//ID取得
+setTimeout(getID(), 3000);
 function getID() {
     //1 get movieID
     var nicoID = location.pathname.slice(7, 18);
@@ -75,49 +73,74 @@ function videoscript() {
 //ニコ生
 function livescript() {
     var nicoID = location.pathname.slice(7, 18);
+    loop();
 
-    //2 従来nicoadにid付与
-    var tmp = document.getElementsByClassName("___item___12Isv");
-    tmp[1].setAttribute("id", "nicoadid");
+    function loop() {
+        //2 従来nicoadにid付与
+        var tmp = document.getElementsByClassName("___item___12Isv");
+        tmp[1].setAttribute("id", "nicoadid");
+        console.log("debug lv02");
 
-    //3 従来nicoadボタン削除
-    var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
-    tmp2[0].setAttribute("id", "offitemarea");
-    var removenicoad = document.getElementById('offitemarea');
-    removenicoad.removeChild(nicoadid);
+        //3 従来nicoadボタン削除
+        var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
+        tmp2[0].setAttribute("id", "offitemarea");
+        var removenicoad = document.getElementById('offitemarea');
+        removenicoad.removeChild(nicoadid);
+        console.log("debug lv03");
 
-    //4 giftにid付与
-    tmp[0].setAttribute("id", "giftid");
+        //4 giftにid付与
+        tmp[0].setAttribute("id", "giftid");
+        console.log("debug lv04");
 
-    //5 add button & image
-    var nicoadex = document.createElement('button');
-    nicoadex.id = "nicoadex";
-    nicoadex.className = "___item___12Isv";
-    nicoadex.type = "button";
-    var nicoadeximg = document.createElement('img');
-    nicoadeximg.className = "___item-image___2Py-3";
-    nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_live.png?raw=true";
-    nicoadeximg.alt = "ニコニ広告ex."
-    var objitemarea = document.getElementsByClassName("___official-locked-item-area___wS6uH").item(0);
-    objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
+        //5 add button & image
+        var nicoadex = document.createElement('button');
+        nicoadex.id = "nicoadex";
+        nicoadex.className = "___item___12Isv";
+        nicoadex.type = "button";
+        var nicoadeximg = document.createElement('img');
+        nicoadeximg.className = "___item-image___2Py-3";
+        nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_live.png?raw=true";
+        nicoadeximg.alt = "ニコニ広告ex."
+        var objitemarea = document.getElementsByClassName("___official-locked-item-area___wS6uH").item(0);
+        objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
+        console.log("debug lv05");
 
-    //-- change aria-lavel
-    document.getElementById("nicoadex").setAttribute("aria-label", "ニコニ広告ex.");
+        //-- change aria-lavel
+        document.getElementById("nicoadex").setAttribute("aria-label", "ニコニ広告ex.");
+        console.log("debug lv05");
 
-    //6 ボタンクリック時
-    document.getElementById("nicoadex").onclick = function () {
-        //giftに偽のクリックアクション
-        document.getElementById('giftid').click();
 
-        //add header
+        //6 ボタンクリック時
+        document.getElementById("nicoadex").onclick = function () {
+            //giftに偽のクリックアクション
+            document.getElementById('giftid').click();
 
-        //iframe url replace
-        var iframe = document.getElementById('RICH-IFRAME');
-        iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID + '?frontendId=12');
-    };
+            //add header
+
+            //iframe url replace
+            var iframe = document.getElementById('RICH-IFRAME');
+            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID + '?frontendId=12');
+        };
+
+    }
+
+    var checkadex = function checkad() {
+        if (document.getElementById("nicoadex")) {
+            console.log("ニコニ広告ex.: debug checkadex");
+        } else {
+            loop();
+            console.log("debug loop");
+        }
+    }
+
+    setInterval(checkadex, 1000);
+
+
 
     console.log("ニコニ広告ex.: debug-complete mode=live");
 }
+
+
 
 
 /*video innerhtml
