@@ -1,4 +1,6 @@
-setTimeout("getID()", 3000);
+setInterval("checkliveichiba()", 1000);
+
+setTimeout("getID()", 1000);
 
 function getID() {
     //1 get movieID
@@ -106,6 +108,8 @@ function livescript() {
     document.getElementById("nicoadex").onclick = function () {
         //giftに偽のクリックアクション
         document.getElementById('giftid').click();
+
+        //add header
 
         //iframe url replace
         var iframe = document.getElementById('RICH-IFRAME');
