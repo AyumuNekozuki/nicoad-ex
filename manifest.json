@@ -3,10 +3,6 @@
     "version": "1.0.0",
     "description": "ニコニコ動画・生放送内のニコニ広告を生放送ギフトのようにコメント欄に表示させます。",
     "manifest_version": 2,
-    "browser_action": {
-        "default_title": "ニコニ広告ex.",
-        "default_popup": "popup.html"
-      },
     "content_scripts": [{
         "matches": ["https://live2.nicovideo.jp/watch/*", "https://www.nicovideo.jp/watch/*"],
         "js": ["script.js","jquery-3.4.1.min.js"]

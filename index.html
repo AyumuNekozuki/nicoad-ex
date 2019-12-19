@@ -33,6 +33,10 @@
             flex-direction: column;
             min-height: 100vh;
             word-break: keep-all;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+
+            margin-left: auto;
+            margin-right: auto;
         }
 
         footer {
@@ -50,6 +54,31 @@
             padding: 10px 100px;
             border: 2px dashed lightgray;
         }
+
+        .imgpng {
+            max-width: 750px;
+        }
+
+        h3 {
+            margin-left: auto;
+            margin-right: auto;
+            border-left: solid 3px #00fa9a;
+            border-right: solid 3px #00fa9a;
+            padding: 0.3em 0.5em;
+
+            max-width: 200px;
+        }
+
+        .form {
+            width: 500px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -58,7 +87,8 @@
     <header>niconico Chrome拡張機能</header>
 
     <div class=logo-area>
-        <h1><img id="ad" src="icon_video.png">ニコニ広告ex.</h1>
+        <img id="ad" src="icon_live.png">
+        <h1>ニコニ広告ex.</h1>
     </div>
 
     <p>ニコニコ動画・生放送ページのニコニ広告を<br>コメント欄に表示する拡張機能です。</p>
@@ -69,11 +99,52 @@
     </div>
 
     <div class="main-area">
+        <div class="howto">
+            <h3>使い方</h3>
+            <p>視聴ページを開き、アイコンに[ex.]がつくまで待ちます。(だいたい3秒)</p>
+            <img class="imgpng" src="http_images/howto01.png">
+            <p>ボタンをクリックすると、コメント欄に表示されます！</p>
+            <img class="imgpng" src="http_images/ima_douga.png">
+            <img class="imgpng" src="http_images/ima_nama.png">
+        </div>
 
-        
+        <div class="FAQ">
+            <h3>FAQ</h3>
 
-        
+            <h4>広告チケットを選んだあと、変更できない</h4>
+            <p>現在のバグです。一度「チケットを利用しない」を選択したあと、選び直すと正常に利用できますのでお試しください。</p>
 
+            <h4>広告の画面が狭すぎる</h4>
+            <p>この拡張機能では、コメント欄に広告画面を表示させるので、コメント欄が小さいと広告画面も小さくなってしまいます。<br>
+                動画・生放送プレイヤー設定より、画面サイズを「自動」に設定の上、再度お試しください。</p>
+
+            <h4>生放送エラーメッセージについて</h4>
+            <p>広告ができない番組、作成に失敗したときなど、左下にエラーメッセージが表示されます。<br>
+                内容を確認し、これはおかしい！というときはご連絡ください。</p>
+            <img style="max-width: 500px;" src="http_images/errorimage.png">
+
+            <h4>急な動作不良につきまして</h4>
+            <p>本拡張機能は、有志が制作したツールとなり、公式と何ら関わりはありません。<br>
+                バグ等のご連絡は、niconico運営ではなく、こちらまでお願い致します。</p>
+            <p>また、公式による機能追加直後は動作しなくなる可能性もございます。<br>
+                こちらの対応までしばらくお待ちいただけますようお願い致します。</p>
+        </div>
+
+        <div class="form">
+            <h3>お問い合わせ</h3>
+            <h4>バグ・不具合などはこちらまでお願い致します。</h4>
+            <ul>
+                <li>Chromeウェブストア内 ニコニ広告ex.配布ページ</li>
+                <li><a href="https://twitter.com/nekozuki_2525">Twitter(@nekozuki_2525)</a></li>
+            </ul>
+            <h4>本拡張機能へのその他お問い合わせはこちらまでお願い致します。</h4>
+            <ul>
+                <li>メール：ayumu@nekozuki.me</li>
+                <li><a href="https://twitter.com/nekozuki_2525">TwitterDM：@nekozuki_2525</a></li>
+                <li>DiscordDM：猫月あゆむ#2525</li>
+            </ul>
+
+        </div>
 
     </div>
 
