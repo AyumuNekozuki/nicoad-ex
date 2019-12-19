@@ -107,13 +107,42 @@ function livescript() {
     //初回動作
     loop();
 
+    //error 広告ボタン取得失敗
+    function ErrorNotAd() {
+        var erdiv = document.getElementsByClassName("___snack-bar___2IY7h ___snack-bar___CBmFK");
+            erdiv[0].setAttribute("aria-hidden", "false");
+        var errorpclass = document.getElementsByClassName("___message___SWZm4");
+        errorpclass[0].innerHTML = "ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。<br>広告非対応番組の可能性があります。";
+        errordelbut();
+    };
+
+    //error 複数
+    function Errormore() {
+        var erdiv = document.getElementsByClassName("___snack-bar___2IY7h ___snack-bar___CBmFK");
+            erdiv[0].setAttribute("aria-hidden", "false");
+        var errorpclass = document.getElementsByClassName("___message___SWZm4");
+        errorpclass[0].innerHTML = "ニコニ広告ex.: ニコニ広告ex.ボタンの作成に失敗しました。<br>他のエラーが出ている可能性があります。<br>コンソールをご確認ください。";
+        errordelbut();
+    }
+
+    //エラーcloseボタン func
+    function errordelbut() {
+        var erbutcla = document.getElementsByClassName("___close-button___3P_fY");
+        erbutcla[0].onclick = function () {
+            var erdiv = document.getElementsByClassName("___snack-bar___2IY7h ___snack-bar___CBmFK");
+            erdiv[0].setAttribute("aria-hidden", "true");
+        }
+    }
+
+
     //基本処理
     function loop() {
         try {
             var tmp = document.getElementsByClassName("___item___12Isv");
             var label0 = tmp[0].getAttribute("aria-label");
         } catch{
-            console.info("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。広告非対応の番組の可能性があります。");
+            console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
+            ErrorNotAd();
         }
 
 
@@ -140,7 +169,8 @@ function livescript() {
                 var removenicoad = document.getElementById('offitemarea');
                 removenicoad.removeChild(nicoadid);
             } catch{
-                console.info("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。広告非対応の番組の可能性があります。");
+                console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
+                ErrorNotAd();
             }
         }
 
@@ -154,7 +184,9 @@ function livescript() {
                 var removenicoad = document.getElementById('offitemarea');
                 removenicoad.removeChild(nicoadid);
             } catch{
-                console.info("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。広告非対応の番組の可能性があります。");
+                console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
+                ErrorNotAd();
+
             }
         }
 
@@ -229,14 +261,15 @@ function livescript() {
                 setInterval(checkadex, 1000);
 
             } catch{
-                console.info("ニコニ広告ex.: ニコニ広告ex.ボタンの作成に失敗しました。他のエラーが出ている可能性があります。");
+                console.info("ニコニ広告ex.: ニコニ広告ex.ボタン 作成失敗");
+                Errormore();
             }
-
         }
-        finally {
-            console.info("ニコニ広告ex.: メイン処理が完了しました。");
+        catch {
+            console.info("ニコニ広告ex.: ニコニ広告ex.ボタン 作成失敗");
         }
     }
+    console.info("ニコニ広告ex.: メイン処理完了");
 }
 
 
