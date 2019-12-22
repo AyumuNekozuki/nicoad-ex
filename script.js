@@ -31,8 +31,8 @@ function videoscript() {
         //3 従来nicoadボタン削除
         var tmp2 = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline");
         tmp2[6].setAttribute("id", "offitemarea");
-        var delnicoadid = document.getElementById("nicoadid");
         var removenicoad = document.getElementById('offitemarea');
+        var delnicoadid = document.getElementById("nicoadid");
         removenicoad.removeChild(delnicoadid);
 
         //4 mylistにid付与
@@ -58,8 +58,9 @@ function videoscript() {
         //3 従来nicoadボタン削除
         var tmp2 = document.getElementsByClassName("ClickInterceptor LoginRequirer is-inline");
         tmp2[5].setAttribute("id", "offitemarea");
-        var removenicoad = document.getElementById('offitemarea');
-        removenicoad.removeChild(nicoadid);
+        var removenicoad = document.getElementById("offitemarea");
+        var delnicoadid = document.getElementById("nicoadid");
+        removenicoad.removeChild(delnicoadid);
 
         //4 mylistにid付与
         var tmp3 = document.getElementsByClassName("ActionButton VideoMenuContainer-button");
