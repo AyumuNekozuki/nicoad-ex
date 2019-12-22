@@ -168,7 +168,8 @@ function livescript() {
                 var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
                 tmp2[0].setAttribute("id", "offitemarea");
                 var removenicoad = document.getElementById('offitemarea');
-                removenicoad.removeChild(nicoadid);
+                var delnicoadid = document.getElementById("nicoadid");
+                removenicoad.removeChild(delnicoadid);
             } catch{
                 console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
                 ErrorNotAd();
