@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="jquery-3.4.1.min.js"></script>
+  <style>
+    body {
+      width: 350x;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      font-size: 25px;
+    }
+
+    .icon {
+      height: 22px;
+    }
+    .banar{
+      width: 125px;
+    }
+
+    #iframe {
+      width:400px;
+      height:400px;
+      border: none;
+    }
+
+    button{
+      border: none;
+      background-color: #f4f4f4;
+      text-align: center;
+      margin: 0 auto;
+    }
+    button:hover{
+      cursor : pointer;
+    }
+
+    footer {
+      width: 100%;
+      color: black;
+      text-align: center;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="headerbanar">
+    <img src="icon/logo_header.png" style="width: 200px;">
+  </div>
+
+  <div id="menu">
+    <button type="button" name="ticket" id="ticket"><img src="icon/ticket.png" class="banar" title="チケット"></button>
+    <button type="button" name="info" id="info"><img src="icon/info.png" class="banar" title="広告INFO"></button>
+  </div>
+
+  <div id="iframearea">
+    <iframe id="iframe" src="https://nicoad.nicovideo.jp/my"></iframe>
+  </div>
+
+
+  <footer>
+    <div id="linkarea">
+      <a class="olink" href=""><img src="../icon_video.png" class="icon" href="https://site.nekozuki.me/nicoad-ex" title="Website"></a>　
+      <a class="olink" href=""><img src="icon/github.png" class="icon" href="https://github.com/AyumuNekozuki/nicoad-ex." title="GitHub"></a>
+    </div>
+    Author : AyumuNekozuki
+  </footer>
+</body>
+<script src="popup.js"></script>
+</html>
