@@ -19,6 +19,10 @@ function getID() {
         console.log("ニコニ広告ex.: type = ニコニコ生放送");
         livescript();
     }
+    if (type == "co"){
+        console.log("ニコニ広告ex.: type = ニコニコ生放送(fromコミュ)");
+        livescript();
+    }
 }
 
 //ニコ動
