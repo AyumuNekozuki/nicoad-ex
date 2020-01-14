@@ -8,19 +8,23 @@ function getID() {
 
     //分岐
     if (type == "sm") {
-        console.log("ニコニ広告ex.: type = ニコニコ動画 (sm)");
+        console.log("ニコニ広告ex.: type = ニコ動 (sm)");
         videoscript();
     }
     if (type == "nm") {
-        console.log("ニコニ広告ex.: type = ニコニコ動画 (nm)");
+        console.log("ニコニ広告ex.: type = ニコ動 (nm)");
+        videoscript();
+    }
+    if (type == "so") {
+        console.log("ニコニ広告ex.: type = CHニコ動 (so)");
         videoscript();
     }
     if (type == "lv") {
-        console.log("ニコニ広告ex.: type = ニコニコ生放送");
+        console.log("ニコニ広告ex.: type = ニコ生 (lv)");
         livescript();
     }
     if (type == "co"){
-        console.log("ニコニ広告ex.: type = ニコニコ生放送(fromコミュ)");
+        console.log("ニコニ広告ex.: type = ニコ生 (co)");
         livescript();
     }
 }
