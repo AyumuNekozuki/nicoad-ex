@@ -16,7 +16,7 @@ function getID() {
         videoscript();
     }
     if (type == "so") {
-        console.log("ニコニ広告ex.: type = CHニコ動 (so)");
+        console.log("ニコニ広告ex.: type = ニコ動 (so)");
         videoscript();
     }
     if (type == "lv") {
