@@ -1,3 +1,7 @@
+![](https://img.shields.io/github/license/AyumuNekozuki/nicoad-ex)
+![](https://img.shields.io/chrome-web-store/v/lfmmnpoacjifgojmhkegmhngbfhdjlmb) 
+![](https://img.shields.io/amo/v/nicoad-ex)
+
 ![](https://nekozuki.me/makes/nicoad-ex/http_images/logo_header.png)
 
 # ニコニ広告ex.
