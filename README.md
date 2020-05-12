@@ -33,5 +33,4 @@
 MIT
 
 ## 作者
-AyumuNekozuki / @nekozuki_dev
-https://portfolio.nekozuki.me
+AyumuNekozuki / @nekozuki_dev / https://portfolio.nekozuki.me
