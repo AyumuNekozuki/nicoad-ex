@@ -27,6 +27,10 @@ function getID() {
         console.log("ニコニ広告ex.: type = ニコ生 (co)");
         livescript();
     }
+    else{
+        console.log("ニコニ広告ex.: type = ニコ動 (so)");
+        videoscript();
+    }
 }
 
 //ニコ動
@@ -228,12 +232,16 @@ function livescript() {
                         var tmp10 = document.getElementsByClassName("___add-button___1FEKw");
                         var label2 = tmp10[0].getAttribute("aria-label");
 
+                        
+
                         if (label2 == "この番組ではネタを追加できません") {
                             var icibanone = document.getElementsByClassName("___player-status___BQ7B7");
                             icibanone[0].style.display = "none";
                             var icibanone2 = document.getElementsByClassName("___rich-view-status___3mt-b");
                             icibanone2[0].removeAttribute("hidden");
                             icibanone2[0].removeAttribute("style");
+                            icibanone2[0].removeAttribute("aria-expanded");
+                            icibanone2[0].setAttribute("aria-expanded",true);
                             document.getElementsByClassName("___close-button___2olJ- ___button___1Ng2E")[0].onclick = function () {
                                 icibanone[0].removeAttribute("style");
                                 icibanone2[0].style.display = "none";
@@ -245,6 +253,8 @@ function livescript() {
                             var icibanone2 = document.getElementsByClassName("___rich-view-status___3mt-b");
                             icibanone2[0].removeAttribute("hidden");
                             icibanone2[0].removeAttribute("style");
+                            icibanone2[0].removeAttribute("aria-expanded");
+                            icibanone2[0].setAttribute("aria-expanded",true);
                             document.getElementsByClassName("___close-button___2olJ- ___button___1Ng2E")[0].onclick = function () {
                                 icibanone[0].removeAttribute("style");
                                 icibanone2[0].style.display = "none";
