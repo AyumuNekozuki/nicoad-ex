@@ -7,31 +7,56 @@ function getID() {
     console.log("ニコニ広告ex.: ID = " + nicoID);
 
     //分岐
-    if (type == "sm") {
-        console.log("ニコニ広告ex.: type = ニコ動 (sm)");
+    if(type == ("sm" || "nm" || "so")){
+        console.log("ニコニ広告ex.: type = ニコニコ動画");
         videoscript();
     }
-    if (type == "nm") {
-        console.log("ニコニ広告ex.: type = ニコ動 (nm)");
-        videoscript();
-    }
-    if (type == "so") {
-        console.log("ニコニ広告ex.: type = ニコ動 (so)");
-        videoscript();
-    }
-    if (type == "lv") {
-        console.log("ニコニ広告ex.: type = ニコ生 (lv)");
-        livescript();
-    }
-    if (type == "co"){
-        console.log("ニコニ広告ex.: type = ニコ生 (co)");
+    else if(type == ("lv" || "co")) {
+        console.log("ニコニ広告ex.: type = ニコニコ生放送");
         livescript();
     }
     else{
-        console.log("ニコニ広告ex.: type = ニコ動 (so)");
+        console.log("ニコニ広告ex.: type = ニコニコ動画(CH)");
         videoscript();
+        /* issue #1 fix : please wait
+        getvideoid();
+        */
     }
 }
+
+/* issue #1 fix : please wait
+function getvideoid() {
+    var nicoID = location.pathname.slice(7, 18);
+    $.ajax({
+        crossDomain:true,
+        url:('https://ext.nicovideo.jp/api/getthumbinfo/' + nicoID),
+        type:'GET',
+        dataType:'xml',
+        timeout:1000,
+        error:function() {
+            console.error("動画IDが取得できませんでした");
+        },
+        success:function(xml){
+            $(xml).find("video_id").one(function() {
+                var video_id = $(this).text();
+                console.log(video_id);
+            });
+        }
+    })
+};
+
+function getvideoid(){
+    var nicoID = location.pathname.slice(7, 18);
+    var xml = ( "https://ext.nicovideo.jp/api/getthumbinfo/" + nicoID )
+    console.log(xml);
+    var parser = new DOMParser();
+    var xmldoc = parser.parseFromString(xml,"text/xml");
+    console.log(xmldoc);
+
+    var video_id = xmldoc.getElementById("video_id").textContent;
+    console.log(video_id);
+}
+*/
 
 //ニコ動
 function videoscript() {
