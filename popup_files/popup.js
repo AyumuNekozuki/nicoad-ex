@@ -1,7 +1,8 @@
 // 外部リンク
-$(function () {
-  $('.olink').on('click', (e) => {
-    chrome.tabs.create({ url: $(e.target).attr('href') });
+$(document).ready(function(){
+  $('body').on('click', 'a', function(){
+    chrome.tabs.create({url: $(this).attr('href')});
+    return false;
   });
 });
 

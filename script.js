@@ -6,57 +6,20 @@ window.onload = function getID() {
     console.log("ニコニ広告ex.: ID = " + nicoID);
 
     //分岐
-    if(type == ("sm" || "nm" || "so")){
+    if (type == ("sm" || "nm" || "so")) {
         console.log("ニコニ広告ex.: type = ニコニコ動画");
         videoscript();
-        console.log("go");
     }
-    else if(type == ("lv" || "co")) {
+    else if (type == ("lv" || "co")) {
         console.log("ニコニ広告ex.: type = ニコニコ生放送");
         livescript();
     }
-    else{
+    else {
         console.log("ニコニ広告ex.: type = ニコニコ動画(CH)");
         videoscript();
-        /* issue #1 fix : please wait
-        getvideoid();
-        */
+        video_buginfo();
     }
 }
-
-/* issue #1 fix : please wait
-function getvideoid() {
-    var nicoID = location.pathname.slice(7, 18);
-    $.ajax({
-        crossDomain:true,
-        url:('https://ext.nicovideo.jp/api/getthumbinfo/' + nicoID),
-        type:'GET',
-        dataType:'xml',
-        timeout:1000,
-        error:function() {
-            console.error("動画IDが取得できませんでした");
-        },
-        success:function(xml){
-            $(xml).find("video_id").one(function() {
-                var video_id = $(this).text();
-                console.log(video_id);
-            });
-        }
-    })
-};
-
-function getvideoid(){
-    var nicoID = location.pathname.slice(7, 18);
-    var xml = ( "https://ext.nicovideo.jp/api/getthumbinfo/" + nicoID )
-    console.log(xml);
-    var parser = new DOMParser();
-    var xmldoc = parser.parseFromString(xml,"text/xml");
-    console.log(xmldoc);
-
-    var video_id = xmldoc.getElementById("video_id").textContent;
-    console.log(video_id);
-}
-*/
 
 //ニコ動
 function videoscript() {
@@ -73,15 +36,12 @@ function videoscript() {
         type: 'button',
         id: 'nicoadButton',
         class: 'ActionButton UadButton VideoMenuContainer-button'
-      }).prependTo('#nicoadButdiv');
-    
-    //ボタン書き換え
+    }).prependTo('#nicoadButdiv');
     $('#nicoadButton').attr('data-title', 'ニコニ広告EX.');
     $("#nicoadButton").html('<svg viewBox="0 0 100 100" id="nicoadSVG" style="fill:#FF7F27 !important;"><path d="M94.3 68.4a5.7 5.7 0 0 0 2.6-1.4c3.2-3.2 1.8-10.3-3-18.9l-5.7 1c2 4.5 2.6 8 1 9.6-3.8 3.8-17.6-3.9-30.8-17s-21-27-17.1-30.9c1.6-1.6 5-1 9.5 1L52 6C43.3 1.3 36.2 0 33 3.1a5.7 5.7 0 0 0-1.4 2.6L13.9 71.6 1.6 74.9a2.1 2.1 0 0 0-1 .5c-2.2 2.2 1.4 9.4 8 16s13.8 10.2 16 8a2.1 2.1 0 0 0 .5-1L28.4 86l65.9-17.7z"></path><rect x="60.1" y="20.7" width="31.6" height="6.8" rx="3.1" ry="3.1" transform="rotate(-45 76 24)"></rect><rect x="47.4" y="10.4" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-75 61.5 13.8)"></rect><rect x="72.1" y="35.1" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-15 86.2 38.5)"></rect></svg>');
 
-
     //ボタンクリック時
-    $("#nicoadButton").get(0).onclick = function () {
+    $("#nicoadButton").on('click', function () {
         $('.MainContainer-floatingPanel').attr('id', 'PanelContainer');
         $('#PanelContainer').html('<div class="FloatingPanelContainer is-visible"><div class="AddingMylistPanelContainer"><div class="AddingMylistPanelContainer-header">ニコニ広告ex. <button type="button" class="ActionButton CloseButton AddingMylistPanelContainer-header-closeButton" id="exclose"><div class="CloseButton-inner"><svg viewBox="0 0 100 100" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4"><path d="M50 32.8L81.6 1.2a4.1 4.1 0 0 1 5.8 0l11.4 11.4a4.1 4.1 0 0 1 0 5.9L67.2 50l31.6 31.6a4.1 4.1 0 0 1 0 5.8L87.4 98.8a4.1 4.1 0 0 1-5.9 0L50 67.2 18.4 98.8a4.1 4.1 0 0 1-5.8 0L1.2 87.4a4.1 4.1 0 0 1 0-5.9L32.8 50 1.2 18.4a4.1 4.1 0 0 1 0-5.8L12.6 1.2a4.1 4.1 0 0 1 5.9 0L50 32.8z"></path></svg></div></button></div><div class="AddingMylistPanelContainer-content""><div class="AddingMylistPanel"><iframe id="nicoadex-iframe" src="hoge" style="border:none; width:100%; height:100%;"></iframe></div></div></div></div>');
 
@@ -89,200 +49,152 @@ function videoscript() {
         $('head').append('<style>.AddingMylistPanelContainer:before { left: 84px; }</style>');
 
         //close処理
-        $("#exclose").get(0).onclick = function () {
+        $("#exclose").on('click', function () {
             $('#PanelContainer').html('');
             $('head').append('<style>.AddingMylistPanelContainer:before { left: 48px; }</style>');
-        };
+        });
 
         //iframe url replace
         var nicoID = location.pathname.slice(7, 18);
         var iframe = document.getElementById('nicoadex-iframe');
         iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/video/publish/' + nicoID + '?frontend_id=6&frontend_version=0&video_watch');
-    };
 
+        //他ボタンクリック時
+        $(".ActionButton:not(#nicoadButton)").on('click', function () {
+            if(document.getElementById("exclose")){
+                document.getElementById("exclose").click();
+            }
+        });
+    });
 }
 
-
-
+//ニコ動-バグインフォ(CH動画用)
+function video_buginfo() {
+    $("#nicoadButton").on('click', function () {
+        $(".AddingMylistPanelContainer-header").css({
+            height:'60px'
+        })
+        $('.AddingMylistPanelContainer-header').append('<p id="nicoad-buginfo" style="font-size:12px;"><a href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1" target="_blank" title="ニコニ広告ex.：一部チャンネル動画で貢献度ランキングが表示されない不具合" style="color:#1DA1F2; text-decoration:underline;">広告ex.:一部チャンネル動画で貢献度ランキングが表示されな...</a></p>')
+        $("<p>", {
+            id: 'nidoad-buginfo',
+            style: 'font-size:12px;'
+        }).append('.AddingMylistPanelContainer-header');
+    });
+    $(".ActionButton :not(#nicoadButton)").on('click', function () {
+        $("#nicoad-buginfo").remove();
+    });
+}
 
 //ニコ生
 function livescript() {
-    setTimeout(getID, 3500);
-    var nicoID = location.pathname.slice(7, 18);
-    var s = 0;
-    //初回動作
-    loop();
 
-    //error 広告ボタン取得失敗
-    function ErrorNotAd() {
-        var erdiv = document.getElementsByClassName("___snack-bar___2IY7h ___snack-bar___CBmFK");
-            erdiv[0].setAttribute("aria-hidden", "false");
-        var errorpclass = document.getElementsByClassName("___message___SWZm4");
-        errorpclass[0].innerHTML = "ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。<br>広告非対応番組の可能性があります。";
-        errordelbut();
-    };
-
-    //error 複数
-    function Errormore() {
-        var erdiv = document.getElementsByClassName("___snack-bar___2IY7h ___snack-bar___CBmFK");
-            erdiv[0].setAttribute("aria-hidden", "false");
-        var errorpclass = document.getElementsByClassName("___message___SWZm4");
-        errorpclass[0].innerHTML = "ニコニ広告ex.: ニコニ広告ex.ボタンの作成に失敗しました。<br>他のエラーが出ている可能性があります。<br>コンソールをご確認ください。";
-        errordelbut();
+    //エラー表示
+    function error_notAD() {
+        $('.___snack-bar___2IY7h, .___snack-bar___CBmFK').attr('aria-hidden', 'false');
+        $('.___message___SWZm4').html("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。")
+        error_closebut();
+        setTimeout(() => {
+            document.getElementById('error-closebut').click();
+        },
+            5000)
+    }
+    function error_closebut() {
+        $('.___close-button___3P_fY').attr('id', 'error-closebut');
+        $("#error-closebut").on('click', function () {
+            $('.___snack-bar___2IY7h, .___snack-bar___CBmFK').attr('aria-hidden', 'true');
+        });
     }
 
-    //エラーcloseボタン func
-    function errordelbut() {
-        var erbutcla = document.getElementsByClassName("___close-button___3P_fY");
-        erbutcla[0].onclick = function () {
-            var erdiv = document.getElementsByClassName("___snack-bar___2IY7h ___snack-bar___CBmFK");
-            erdiv[0].setAttribute("aria-hidden", "true");
+    //メイン処理
+    function main() {
+        //ボタン削除
+        var order = $('[aria-label="ニコニ広告"]').data('target-order');
+        $('[aria-label="ニコニ広告"]').attr('id', 'nicoadButton');
+        $('#nicoadButton').remove();
+
+        //ボタン作成
+        $("<button>", {
+            type: 'button',
+            id: 'nicoadButton',
+            class: '___item___12Isv'
+        }).appendTo('.___official-locked-item-area___wS6uH');
+        $('#nicoadButton').attr('aria-label', 'ニコニ広告EX.');
+        $('#nicoadButton').attr('data-content-type', 'nicoadex');
+        $('#nicoadButton').attr('data-target-order', order);
+        $("#nicoadButton").html('<svg viewBox="-30 -30 160 160" id="nicoadSVG" class="___item-image___2Py-3" style="fill:#FF7F27 !important;"><path d="M94.3 68.4a5.7 5.7 0 0 0 2.6-1.4c3.2-3.2 1.8-10.3-3-18.9l-5.7 1c2 4.5 2.6 8 1 9.6-3.8 3.8-17.6-3.9-30.8-17s-21-27-17.1-30.9c1.6-1.6 5-1 9.5 1L52 6C43.3 1.3 36.2 0 33 3.1a5.7 5.7 0 0 0-1.4 2.6L13.9 71.6 1.6 74.9a2.1 2.1 0 0 0-1 .5c-2.2 2.2 1.4 9.4 8 16s13.8 10.2 16 8a2.1 2.1 0 0 0 .5-1L28.4 86l65.9-17.7z"></path><rect x="60.1" y="20.7" width="31.6" height="6.8" rx="3.1" ry="3.1" transform="rotate(-45 76 24)"></rect><rect x="47.4" y="10.4" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-75 61.5 13.8)"></rect><rect x="72.1" y="35.1" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-15 86.2 38.5)"></rect></svg>')
+
+        //いろいろid付与
+        $(".___close-button___2olJ-").attr('id', 'iframe-close-but');
+        $(".___setting-button___2e-c9").attr('id', 'setting-but');
+        $(".___fullscreen-button___1ZfbK").attr('id', 'fullscreen-but');
+
+        //ボタンクリック時
+        $("#nicoadButton").on('click', function () {
+            //詳細設定画面 消す（バグ防止）
+            $(".___close-button___23Wwj").attr('id', 'settingclose-but');
+            if (document.getElementById('settingclose-but')) {
+                document.getElementById("settingclose-but").click();
+            }
+            //ニコニ広告exヘッダ消す
+            $('#iframePanel-header').remove();
+            $('.___rich-view-status___3mt-b').attr('id', 'iframePanel');
+            $('.___rich-view-status___3mt-b').removeAttr('hidden');
+            $('.___rich-view-status___3mt-b').attr('aria-expanded', 'true');
+            $('.___player-status___BQ7B7').attr('style', 'display:none;');
+            $('.___rich-view-header___VKkl-').prepend('<div id="iframePanel-header"><h1 style="color:#252525; text-align:center; font-size:14px; margin:0; padding:0; line-height: 45px;">ニコニ広告EX.<a data-v-0d10b35d="" href="https://nekozuki.me/makes/nicoad-ex/" target="_blank" style="margin-left:8px;line-height:1;"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
+
+            //iframe url replace
+            var nicoID = location.pathname.slice(7, 18);
+            var iframe = document.getElementById('RICH-IFRAME');
+            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID + '?frontendId=12');
+        });
+
+        //終了処理
+        function exit_nicoadex() {
+            if (document.getElementById('iframePanel-header')) {
+                $('#iframePanel-header').remove();
+            }
+            $('.___rich-view-status___3mt-b').removeAttr('aria-expanded');
+            $('.___rich-view-status___3mt-b').attr('aria-expanded', 'false');
+            $('.___rich-view-status___3mt-b').attr('hidden', '');
+            $('.___player-status___BQ7B7').removeAttr('style');
+            var iframe = document.getElementById('RICH-IFRAME');
+            iframe.contentWindow.location.replace('(unknown)');
+            console.log("ok-exit");
         }
+
+        $("#iframe-close-but, #fullscreen-but").on('click', function () {
+            exit_nicoadex();
+        });
+        $("#setting-but").on('click', function () {
+            document.getElementById("iframe-close-but").click();
+        });
+
+        //ニコニ広告exヘッダ削除
+        //エモーション,ギフト,新市場
+        $('.___emotion-button___1Rolf').addClass('adex-other');
+        $('[aria-label="ギフト"]').addClass('adex-other');
+        $('.___add-button___1FEKw').addClass('adex-other');
+        $('[data-content-type="broadcast_tool"]').addClass('adex-other');
+        $('.adex-other').on('click', function () {
+            $('#iframePanel-header').remove();
+        });
     }
-
-
-    //基本処理
-    function loop() {
-        try {
-            var tmp = document.getElementsByClassName("___item___12Isv");
-            var label0 = tmp[0].getAttribute("aria-label");
-        } catch{
-            console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
-            ErrorNotAd();
-        }
-
-
-        if (label0 == "ギフト") {
-            //4 giftにid付与
-            tmp[0].setAttribute("id", "nisebutid");
-            s = 1;
-            lvgift();
+    var checkadex = function checkad() {
+        if (document.getElementById("nicoadButton")) {
+            console.log("ニコニ広告ex.: 動作中です");
         } else {
-            //4 代用 新市場addにid付与
-            var tmp5 = document.getElementsByClassName("___add-button___1FEKw");
-            tmp5[0].setAttribute("id", "nisebutid");
-            s = 2;
-            lvichiba();
-        }
-
-        function lvgift() {
-            try {
-                //2 従来nicoadにid付与
-                tmp[1].setAttribute("id", "nicoadid");
-                //3 従来nicoadボタン削除
-                var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
-                tmp2[0].setAttribute("id", "offitemarea");
-                var removenicoad = document.getElementById('offitemarea');
-                var delnicoadid = document.getElementById("nicoadid");
-                removenicoad.removeChild(delnicoadid);
-            } catch{
-                console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
-                ErrorNotAd();
-            }
-        }
-
-        function lvichiba() {
-            try {
-                //2 従来nicoadにid付与
-                tmp[0].setAttribute("id", "nicoadid");
-                //3 従来nicoadボタン削除
-                var tmp2 = document.getElementsByClassName("___official-locked-item-area___wS6uH");
-                tmp2[0].setAttribute("id", "offitemarea");
-                var removenicoad = document.getElementById('offitemarea');
-                removenicoad.removeChild(nicoadid);
-            } catch{
-                console.info("ニコニ広告ex.: ニコニ広告ボタン 取得失敗");
-                ErrorNotAd();
-
-            }
-        }
-
-        try {
-            //5 広告ex.ボタン・画像追加
-            var nicoadex = document.createElement('button');
-            nicoadex.id = "nicoadex";
-            nicoadex.className = "___item___12Isv";
-            nicoadex.type = "button";
-            var nicoadeximg = document.createElement('img');
-            nicoadeximg.className = "___item-image___2Py-3";
-            nicoadeximg.src = "https://github.com/AyumuNekozuki/nicolive-iframe-nicoad/blob/master/icon_live.png?raw=true";
-            nicoadeximg.alt = "ニコニ広告ex."
-            var objitemarea = document.getElementsByClassName("___official-locked-item-area___wS6uH").item(0);
-            objitemarea.appendChild(nicoadex).appendChild(nicoadeximg);
-
-            //-- aria-lavel変更
-            document.getElementById("nicoadex").setAttribute("aria-label", "ニコニ広告ex.");
-
-            try {
-                //6 ボタンクリック時
-                document.getElementById("nicoadex").onclick = function () {
-                    if (s == 1) {
-                        //偽のクリックアクション
-                        document.getElementById('nisebutid').click();
-                    }
-                    if (s == 2) {
-                        var tmp10 = document.getElementsByClassName("___add-button___1FEKw");
-                        var label2 = tmp10[0].getAttribute("aria-label");
-
-                        
-
-                        if (label2 == "この番組ではネタを追加できません") {
-                            var icibanone = document.getElementsByClassName("___player-status___BQ7B7");
-                            icibanone[0].style.display = "none";
-                            var icibanone2 = document.getElementsByClassName("___rich-view-status___3mt-b");
-                            icibanone2[0].removeAttribute("hidden");
-                            icibanone2[0].removeAttribute("style");
-                            icibanone2[0].removeAttribute("aria-expanded");
-                            icibanone2[0].setAttribute("aria-expanded",true);
-                            document.getElementsByClassName("___close-button___2olJ- ___button___1Ng2E")[0].onclick = function () {
-                                icibanone[0].removeAttribute("style");
-                                icibanone2[0].style.display = "none";
-                            }
-                        }
-                        else if (tmp10[0].hasAttribute("disabled")) {
-                            var icibanone = document.getElementsByClassName("___player-status___BQ7B7");
-                            icibanone[0].style.display = "none";
-                            var icibanone2 = document.getElementsByClassName("___rich-view-status___3mt-b");
-                            icibanone2[0].removeAttribute("hidden");
-                            icibanone2[0].removeAttribute("style");
-                            icibanone2[0].removeAttribute("aria-expanded");
-                            icibanone2[0].setAttribute("aria-expanded",true);
-                            document.getElementsByClassName("___close-button___2olJ- ___button___1Ng2E")[0].onclick = function () {
-                                icibanone[0].removeAttribute("style");
-                                icibanone2[0].style.display = "none";
-                            }
-                        }
-                        else {
-                            //偽のクリックアクション
-                            document.getElementById('nisebutid').click();
-                        }
-                    }
-
-                    //iframe url replace
-                    var iframe = document.getElementById('RICH-IFRAME');
-                    iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID + '?frontendId=12');
-                }
-
-                //追っかけ対応処理 idチェックなければ基本処理実行
-                var checkadex = function checkad() {
-                    if (document.getElementById("nicoadex")) {
-                        console.log("ニコニ広告ex.: 動作中です");
-                    } else {
-                        loop();
-                    }
-                }
-                setInterval(checkadex, 1000);
-
-            } catch{
-                console.info("ニコニ広告ex.: ニコニ広告ex.ボタン 作成失敗");
-                Errormore();
-            }
-        }
-        catch {
-            console.info("ニコニ広告ex.: ニコニ広告ex.ボタン 作成失敗");
+            main();
         }
     }
-    console.info("ニコニ広告ex.: メイン処理完了");
+
+    //初回～
+    $('[aria-label="ニコニ広告"]').attr('id', 'nicoadButton');
+    if(document.getElementById("nicoadButton")){
+        main();
+    } else {
+        error_notAD();
+        console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
+    }
+    setInterval(checkadex, 2000);
 }
-
-

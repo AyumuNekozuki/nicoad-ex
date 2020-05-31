@@ -28,6 +28,14 @@
       text-align: center;
       padding: 10px 0;
     }
+    ul{
+      margin-left: 1em;
+      padding-left: 0;
+    }
+    li{
+      text-align: left;
+      margin-left: 0;
+    }
 
     .back{
       display: none;
@@ -36,7 +44,38 @@
 </head>
 
 <body>
-  <div id="v114">
+  <div id="v120">
+    <h2>ver 1.2.0 更新情報</h2>
+    <div class="main">
+      <h3>機能改善</h3>
+      <ul>
+        <li>拡張機能のボタンをわかりやすくしました。</li>
+        <li>生放送：閉じるボタンを押しやすくしました。</li>
+      </ul>
+      <h3>不具合修正</h3>
+      <ul>
+        <li>生放送：一部公式番組でフルスク解除時に表示崩れが起きる不具合を修正</li>
+        <li>生放送：正常な状態で意図せずエラーログが表示されてしまう不具合を修正</li>
+      </ul>
+      <h3>細かい修正</h3>
+      <ul>
+        <li>動画：各所デザインのズレを修正しました。</li>
+        <li>生放送：エラーログを5秒後に自動で閉じるようにしました。</li>
+      </ul>
+      <h3>裏側の修正</h3>
+      <ul>
+        <li>スクリプトを全て見直しました。</li>
+        <li>スクリプトを軽量化しました。</li>
+      </ul>
+      <h3>現在周知の不具合</h3>
+      <ul>
+        <li>動画：一部チャンネル動画で貢献度ランキング・広告履歴が表示されない不具合：<a target="_blank" href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1">詳細はコチラ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="v114" class="back">
     <h2>ver 1.1.4 更新情報</h2>
     <div class="main">
       <h3>不具合修正</h3>
@@ -106,9 +145,6 @@
   <div id="fot">
     <p style="text-align: left;">その他バグ等ありましたら、以下「ニコニ広告ex.」アイコンクリック、リンク先ページよりご連絡下さい。</p>
   </div>
-
-  
-
 
   <footer>
     <a class="olink" href="https://nekozuki.me/makes/nicoad-ex" target="_blank"><img src="icon/icon_video.png" class="icon"
