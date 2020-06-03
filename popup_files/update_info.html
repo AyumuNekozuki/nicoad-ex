@@ -28,22 +28,45 @@
       text-align: center;
       padding: 10px 0;
     }
-    ul{
+
+    ul {
       margin-left: 1em;
       padding-left: 0;
     }
-    li{
+
+    li {
       text-align: left;
       margin-left: 0;
     }
 
-    .back{
+    .back {
       display: none;
     }
   </style>
 </head>
 
 <body>
+  <div id="v121">
+    <h2>ver 1.2.1 更新情報</h2>
+    <h3>機能改善</h3>
+    <ul>
+      <li>動画IDが "nl" など、soではない公式動画IDに対応しました。</li>
+    </ul>
+    <h3>不具合修正</h3>
+    <ul>
+      <li>動画：Firefoxにてボタンが正常に作成されない不具合</li>
+      <li>動画：通信速度が遅い場合に、ページの読み込み終了よりも拡張機能が先に実行されてしまいボタンが作成されない不具合</li>
+    </ul>
+    <h3>現在周知の不具合</h3>
+    <ul>
+      <li>動画：一部チャンネル動画で貢献度ランキング・広告履歴が表示されない不具合<br><a target="_blank"
+          href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1">詳細はコチラ</a>
+      </li>
+      <li>動画：Firefox 76.x にて動画スクリプトが動作しない不具合<br><a target="_blank"
+        href="https://github.com/AyumuNekozuki/nicoad-ex/issues/6">Firefoxのアップデートを行うと解消します（詳細）</a>
+    </li>
+    </ul>
+  </div>
   <div id="v120">
     <h2>ver 1.2.0 更新情報</h2>
     <div class="main">
@@ -69,7 +92,8 @@
       </ul>
       <h3>現在周知の不具合</h3>
       <ul>
-        <li>動画：一部チャンネル動画で貢献度ランキング・広告履歴が表示されない不具合：<a target="_blank" href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1">詳細はコチラ</a>
+        <li>動画：一部チャンネル動画で貢献度ランキング・広告履歴が表示されない不具合：<a target="_blank"
+            href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1">詳細はコチラ</a>
         </li>
       </ul>
     </div>
@@ -88,7 +112,7 @@
       <p style="text-align: left;">
         「ニコニ広告ex.」特設サイトのURLが変わったため、各所修正しました。<br>
         新しいURLはコチラです。<br>
-        <a href="https://nekozuki.me/makes/nicoad-ex"  target="_blank">https://nekozuki.me/makes/nicoad-ex</a>
+        <a href="https://nekozuki.me/makes/nicoad-ex" target="_blank">https://nekozuki.me/makes/nicoad-ex</a>
       </p>
     </div>
   </div>
@@ -147,8 +171,8 @@
   </div>
 
   <footer>
-    <a class="olink" href="https://nekozuki.me/makes/nicoad-ex" target="_blank"><img src="icon/icon_video.png" class="icon"
-        title="Website"></a>　
+    <a class="olink" href="https://nekozuki.me/makes/nicoad-ex" target="_blank"><img src="icon/icon_video.png"
+        class="icon" title="Website"></a>　
     <a class="olink" href="https://github.com/AyumuNekozuki/nicoad-ex" target="_blank"><img src="icon/github.png"
         class="icon" title="GitHub"></a>
   </footer>
