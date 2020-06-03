@@ -4,13 +4,14 @@ window.onload = function getID() {
     var nicoID = location.pathname.slice(7, 18);
     var type = nicoID.slice(0, 2);
     console.log("ニコニ広告ex.: ID = " + nicoID);
+    console.log("ニコニ広告ex.: type = " + type);
 
     //分岐
-    if (type == ("sm" || "nm" || "so")) {
+    if (type == "sm" || type == "nm") {
         console.log("ニコニ広告ex.: type = ニコニコ動画");
         videoscript();
     }
-    else if (type == ("lv" || "co")) {
+    else if (type == "lv" || type == "co") {
         console.log("ニコニ広告ex.: type = ニコニコ生放送");
         livescript();
     }
@@ -19,60 +20,85 @@ window.onload = function getID() {
         videoscript();
         video_buginfo();
     }
-}
+};
 
 //ニコ動
 function videoscript() {
-    //マイリストボタンにid付与
-    $('[data-title="マイリスト"]').attr('id', 'mylistButton');
 
-    //元ボタン削除
-    $('.UadButton').attr('id', 'nicoadButton');
-    $("#nicoadButton").parent().attr('id', 'nicoadButdiv');
-    $('#nicoadButton').remove();
+    function main_video() {
+        //マイリストボタンにid付与
+        $('[data-title="マイリスト"]').attr('id', 'mylistButton');
 
-    //ボタン作成
-    $("<button>", {
-        type: 'button',
-        id: 'nicoadButton',
-        class: 'ActionButton UadButton VideoMenuContainer-button'
-    }).prependTo('#nicoadButdiv');
-    $('#nicoadButton').attr('data-title', 'ニコニ広告EX.');
-    $("#nicoadButton").html('<svg viewBox="0 0 100 100" id="nicoadSVG" style="fill:#FF7F27 !important;"><path d="M94.3 68.4a5.7 5.7 0 0 0 2.6-1.4c3.2-3.2 1.8-10.3-3-18.9l-5.7 1c2 4.5 2.6 8 1 9.6-3.8 3.8-17.6-3.9-30.8-17s-21-27-17.1-30.9c1.6-1.6 5-1 9.5 1L52 6C43.3 1.3 36.2 0 33 3.1a5.7 5.7 0 0 0-1.4 2.6L13.9 71.6 1.6 74.9a2.1 2.1 0 0 0-1 .5c-2.2 2.2 1.4 9.4 8 16s13.8 10.2 16 8a2.1 2.1 0 0 0 .5-1L28.4 86l65.9-17.7z"></path><rect x="60.1" y="20.7" width="31.6" height="6.8" rx="3.1" ry="3.1" transform="rotate(-45 76 24)"></rect><rect x="47.4" y="10.4" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-75 61.5 13.8)"></rect><rect x="72.1" y="35.1" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-15 86.2 38.5)"></rect></svg>');
+        //元ボタン削除
+        $('.UadButton').attr('id', 'nicoadButton');
+        $("#nicoadButton").parent().attr('id', 'nicoadButdiv');
+        $('#nicoadButton').remove();
 
-    //ボタンクリック時
-    $("#nicoadButton").on('click', function () {
-        $('.MainContainer-floatingPanel').attr('id', 'PanelContainer');
-        $('#PanelContainer').html('<div class="FloatingPanelContainer is-visible"><div class="AddingMylistPanelContainer"><div class="AddingMylistPanelContainer-header">ニコニ広告ex. <button type="button" class="ActionButton CloseButton AddingMylistPanelContainer-header-closeButton" id="exclose"><div class="CloseButton-inner"><svg viewBox="0 0 100 100" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4"><path d="M50 32.8L81.6 1.2a4.1 4.1 0 0 1 5.8 0l11.4 11.4a4.1 4.1 0 0 1 0 5.9L67.2 50l31.6 31.6a4.1 4.1 0 0 1 0 5.8L87.4 98.8a4.1 4.1 0 0 1-5.9 0L50 67.2 18.4 98.8a4.1 4.1 0 0 1-5.8 0L1.2 87.4a4.1 4.1 0 0 1 0-5.9L32.8 50 1.2 18.4a4.1 4.1 0 0 1 0-5.8L12.6 1.2a4.1 4.1 0 0 1 5.9 0L50 32.8z"></path></svg></div></button></div><div class="AddingMylistPanelContainer-content""><div class="AddingMylistPanel"><iframe id="nicoadex-iframe" src="hoge" style="border:none; width:100%; height:100%;"></iframe></div></div></div></div>');
+        //ボタン作成
+        $("<button>", {
+            type: 'button',
+            id: 'nicoadButton',
+            class: 'ActionButton UadButton VideoMenuContainer-button'
+        }).prependTo('#nicoadButdiv');
+        $('#nicoadButton').attr('data-title', 'ニコニ広告EX.');
+        $("#nicoadButton").html('<svg viewBox="0 0 100 100" id="nicoadSVG" style="fill:#FF7F27 !important;"><path d="M94.3 68.4a5.7 5.7 0 0 0 2.6-1.4c3.2-3.2 1.8-10.3-3-18.9l-5.7 1c2 4.5 2.6 8 1 9.6-3.8 3.8-17.6-3.9-30.8-17s-21-27-17.1-30.9c1.6-1.6 5-1 9.5 1L52 6C43.3 1.3 36.2 0 33 3.1a5.7 5.7 0 0 0-1.4 2.6L13.9 71.6 1.6 74.9a2.1 2.1 0 0 0-1 .5c-2.2 2.2 1.4 9.4 8 16s13.8 10.2 16 8a2.1 2.1 0 0 0 .5-1L28.4 86l65.9-17.7z"></path><rect x="60.1" y="20.7" width="31.6" height="6.8" rx="3.1" ry="3.1" transform="rotate(-45 76 24)"></rect><rect x="47.4" y="10.4" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-75 61.5 13.8)"></rect><rect x="72.1" y="35.1" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-15 86.2 38.5)"></rect></svg>');
 
-        //:before(パネルヘッダの▲)修正
-        $('head').append('<style>.AddingMylistPanelContainer:before { left: 84px; }</style>');
+        //ボタンクリック時
+        $("#nicoadButton").on('click', function () {
+            $('.MainContainer-floatingPanel').attr('id', 'PanelContainer');
+            $('#PanelContainer').html('<div class="FloatingPanelContainer is-visible"><div class="AddingMylistPanelContainer"><div class="AddingMylistPanelContainer-header">ニコニ広告ex. <button type="button" class="ActionButton CloseButton AddingMylistPanelContainer-header-closeButton" id="exclose"><div class="CloseButton-inner"><svg viewBox="0 0 100 100" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4"><path d="M50 32.8L81.6 1.2a4.1 4.1 0 0 1 5.8 0l11.4 11.4a4.1 4.1 0 0 1 0 5.9L67.2 50l31.6 31.6a4.1 4.1 0 0 1 0 5.8L87.4 98.8a4.1 4.1 0 0 1-5.9 0L50 67.2 18.4 98.8a4.1 4.1 0 0 1-5.8 0L1.2 87.4a4.1 4.1 0 0 1 0-5.9L32.8 50 1.2 18.4a4.1 4.1 0 0 1 0-5.8L12.6 1.2a4.1 4.1 0 0 1 5.9 0L50 32.8z"></path></svg></div></button></div><div class="AddingMylistPanelContainer-content""><div class="AddingMylistPanel"><iframe id="nicoadex-iframe" src="hoge" style="border:none; width:100%; height:100%;"></iframe></div></div></div></div>');
 
-        //close処理
-        $("#exclose").on('click', function () {
-            $('#PanelContainer').html('');
-            $('head').append('<style>.AddingMylistPanelContainer:before { left: 48px; }</style>');
+            //:before(パネルヘッダの▲)修正
+            $('head').append('<style>.AddingMylistPanelContainer:before { left: 84px; }</style>');
+
+            //close処理
+            $("#exclose").on('click', function () {
+                $('#PanelContainer').html('');
+                $('head').append('<style>.AddingMylistPanelContainer:before { left: 48px; }</style>');
+            });
+
+            //iframe url replace
+            var nicoID = location.pathname.slice(7, 18);
+            var iframe = document.getElementById('nicoadex-iframe');
+            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/video/publish/' + nicoID + '?frontend_id=6&frontend_version=0&video_watch');
+
+            //他ボタンクリック時
+            $(".ActionButton:not(#nicoadButton)").on('click', function () {
+                if (document.getElementById("exclose")) {
+                    document.getElementById("exclose").click();
+                }
+            });
         });
+    }
 
-        //iframe url replace
-        var nicoID = location.pathname.slice(7, 18);
-        var iframe = document.getElementById('nicoadex-iframe');
-        iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/video/publish/' + nicoID + '?frontend_id=6&frontend_version=0&video_watch');
+    function v_checkadex() {
+        if (document.getElementById("nicoadButton")) {
+            console.log("ニコニ広告ex.: 動作中です");
+        } else {
+            main_video();
+        }
+    }
 
-        //他ボタンクリック時
-        $(".ActionButton:not(#nicoadButton)").on('click', function () {
-            if(document.getElementById("exclose")){
-                document.getElementById("exclose").click();
-            }
-        });
-    });
+    function video_first() {
+        //初回～
+        $('[data-title="ニコニ広告する"]').attr('id', 'nicoadButton');
+        if (document.getElementById("nicoadButton")) {
+            main_video();
+        } else {
+            console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。再実行します。");
+        }
+    }
+
+    video_first();
+    setInterval(v_checkadex, 2500);
 }
+
 
 //ニコ動-バグインフォ(CH動画用)
 function video_buginfo() {
     $("#nicoadButton").on('click', function () {
         $(".AddingMylistPanelContainer-header").css({
-            height:'60px'
+            height: '60px'
         })
         $('.AddingMylistPanelContainer-header').append('<p id="nicoad-buginfo" style="font-size:12px;"><a href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1" target="_blank" title="ニコニ広告ex.：一部チャンネル動画で貢献度ランキングが表示されない不具合" style="color:#1DA1F2; text-decoration:underline;">広告ex.:一部チャンネル動画で貢献度ランキングが表示されな...</a></p>')
         $("<p>", {
@@ -106,7 +132,7 @@ function livescript() {
     }
 
     //メイン処理
-    function main() {
+    function live_main() {
         //ボタン削除
         var order = $('[aria-label="ニコニ広告"]').data('target-order');
         $('[aria-label="ニコニ広告"]').attr('id', 'nicoadButton');
@@ -184,14 +210,14 @@ function livescript() {
         if (document.getElementById("nicoadButton")) {
             console.log("ニコニ広告ex.: 動作中です");
         } else {
-            main();
+            live_main();
         }
     }
 
     //初回～
     $('[aria-label="ニコニ広告"]').attr('id', 'nicoadButton');
-    if(document.getElementById("nicoadButton")){
-        main();
+    if (document.getElementById("nicoadButton")) {
+        live_main();
     } else {
         error_notAD();
         console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
