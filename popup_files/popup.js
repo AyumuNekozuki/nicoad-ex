@@ -9,7 +9,7 @@ $(document).ready(function(){
 //ボタンクリック時
 document.getElementById("info").onclick = function(){
   var iframe = document.getElementById('iframe');
-  iframe.contentWindow.location.replace('https://blog.nicovideo.jp/niconews/category/nicoad/');
+  iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/campaign');
 }
 
 document.getElementById("ticket").onclick = function(){
@@ -21,3 +21,4 @@ document.getElementById("exinfo").onclick = function(){
   var iframe = document.getElementById('iframe');
   iframe.contentWindow.location.replace('update_info.html');
 }
+
