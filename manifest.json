@@ -36,8 +36,6 @@
         "default_popup": "popup_files/popup.html"
 	},
     "permissions": [
-        "tabs",
-        "cookies",
         "*://*.nicovideo.jp/"
     ]
 }
