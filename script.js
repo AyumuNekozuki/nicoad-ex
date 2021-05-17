@@ -1,3 +1,9 @@
+//version
+let manifestData = chrome.runtime.getManifest();
+let ex_version = manifestData.version + "";
+console.log("ニコニ広告ex.: v" + ex_version);
+
+
 //ID取得
 window.onload = function getID() {
     //1 get movieID
@@ -186,7 +192,6 @@ function livescript() {
             $('.___player-status___1VfkA').removeAttr('style');
             var iframe = document.getElementById('RICH-IFRAME');
             iframe.contentWindow.location.replace('(unknown)');
-            console.log("ok-exit");
         }
 
         $("#iframe-close-but, #fullscreen-but").on('click', function () {
@@ -208,7 +213,6 @@ function livescript() {
     }
     var checkadex = function checkad() {
         if (document.getElementById("nicoadButton")) {
-            console.log("ニコニ広告ex.: 動作中です");
         } else {
             live_main();
         }
