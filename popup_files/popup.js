@@ -1,3 +1,8 @@
+//version
+let manifestData = chrome.runtime.getManifest();
+let ex_version = manifestData.version + "";
+$('#ex_version').text('ニコニ広告ex. v'+ex_version);
+
 // 外部リンク
 $(document).ready(function(){
   $('body').on('click', 'a', function(){
