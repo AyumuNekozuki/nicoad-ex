@@ -150,9 +150,9 @@ function livescript() {
         $("#nicoadButton").html('<svg viewBox="-30 -30 160 160" id="nicoadSVG" class="___item-image___2Py-3" style="fill:#FF7F27 !important;"><path d="M94.3 68.4a5.7 5.7 0 0 0 2.6-1.4c3.2-3.2 1.8-10.3-3-18.9l-5.7 1c2 4.5 2.6 8 1 9.6-3.8 3.8-17.6-3.9-30.8-17s-21-27-17.1-30.9c1.6-1.6 5-1 9.5 1L52 6C43.3 1.3 36.2 0 33 3.1a5.7 5.7 0 0 0-1.4 2.6L13.9 71.6 1.6 74.9a2.1 2.1 0 0 0-1 .5c-2.2 2.2 1.4 9.4 8 16s13.8 10.2 16 8a2.1 2.1 0 0 0 .5-1L28.4 86l65.9-17.7z"></path><rect x="60.1" y="20.7" width="31.6" height="6.8" rx="3.1" ry="3.1" transform="rotate(-45 76 24)"></rect><rect x="47.4" y="10.4" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-75 61.5 13.8)"></rect><rect x="72.1" y="35.1" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-15 86.2 38.5)"></rect></svg>')
 
         //いろいろid付与
-        $(".___close-button___2olJ-").attr('id', 'iframe-close-but');
-        $(".___setting-button___2e-c9").attr('id', 'setting-but');
-        $(".___fullscreen-button___1ZfbK").attr('id', 'fullscreen-but');
+        $(".___close-button___OGexZ").attr('id', 'iframe-close-but');
+        $(".___setting-button___HHUPl").attr('id', 'setting-but');
+        $(".___fullscreen-button___dO6Gz").attr('id', 'fullscreen-but');
 
         //ボタンクリック時
         $("#nicoadButton").on('click', function () {
@@ -163,11 +163,11 @@ function livescript() {
             }
             //ニコニ広告exヘッダ消す
             $('#iframePanel-header').remove();
-            $('.___rich-view-status___3mt-b').attr('id', 'iframePanel');
-            $('.___rich-view-status___3mt-b').removeAttr('hidden');
-            $('.___rich-view-status___3mt-b').attr('aria-expanded', 'true');
-            $('.___player-status___BQ7B7').attr('style', 'display:none;');
-            $('.___rich-view-header___VKkl-').prepend('<div id="iframePanel-header"><h1 style="color:#252525; text-align:center; font-size:14px; margin:0; padding:0; line-height: 45px;">ニコニ広告EX.<a data-v-0d10b35d="" href="https://nekozuki.me/makes/nicoad-ex/" target="_blank" style="margin-left:8px;line-height:1;"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
+            $('.___rich-view-status___2PXao').attr('id', 'iframePanel');
+            $('.___rich-view-status___2PXao').removeAttr('hidden');
+            $('.___rich-view-status___2PXao').attr('aria-expanded', 'true');
+            $('.___player-status___1VfkA').attr('style', 'display:none;');
+            $('.___rich-view-header___1KxaL').prepend('<div id="iframePanel-header"><h1 style="color:#252525; text-align:center; font-size:14px; margin:0; padding:0; line-height: 45px;">ニコニ広告EX.<a data-v-0d10b35d="" href="https://nekozuki.me/makes/nicoad-ex/" target="_blank" style="margin-left:8px;line-height:1;"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
 
             //iframe url replace
             var nicoID = location.pathname.slice(7, 18);
@@ -180,10 +180,10 @@ function livescript() {
             if (document.getElementById('iframePanel-header')) {
                 $('#iframePanel-header').remove();
             }
-            $('.___rich-view-status___3mt-b').removeAttr('aria-expanded');
-            $('.___rich-view-status___3mt-b').attr('aria-expanded', 'false');
-            $('.___rich-view-status___3mt-b').attr('hidden', '');
-            $('.___player-status___BQ7B7').removeAttr('style');
+            $('.___rich-view-status___2PXao').removeAttr('aria-expanded');
+            $('.___rich-view-status___2PXao').attr('aria-expanded', 'false');
+            $('.___rich-view-status___2PXao').attr('hidden', '');
+            $('.___player-status___1VfkA').removeAttr('style');
             var iframe = document.getElementById('RICH-IFRAME');
             iframe.contentWindow.location.replace('(unknown)');
             console.log("ok-exit");
