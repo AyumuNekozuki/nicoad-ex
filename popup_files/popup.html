@@ -63,6 +63,16 @@
     .hide{
       display: none;
     }
+
+    #info_text{
+      height: 1.75em;
+    }
+    #info_text a{
+      color: #0080ff;
+    }
+    #info_text a:hover{
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -71,17 +81,24 @@
     <img src="icon/logo_header.png" style="width: 200px;">
   </div>
 
+  <div id="info_text">
+    <a href="https://blog.nekozuki.me/nl33/" target="_blank" rel="noopener noreferrer">ニコニ広告ex. v2.0.0アップデートのお知らせ</a>
+  </div>
+
   <div id="menu">
     <button type="button" name="ticket" id="ticket"><img src="icon/ticket.png" class="banar" title="チケット"></button>
     <button type="button" name="info" id="info"><img src="icon/info.png" class="banar" title="広告INFO"></button>
     <button type="button" name="exinfo" id="exinfo"><img src="icon/updateinfo.png" class="banar" title="広告ex.アップデートINFO"></button>
   </div>
 
+
   <div id="iframearea">
     <iframe id="iframe" src="https://nicoad.nicovideo.jp/my#tickets"></iframe>
   </div>
 
   <footer>
+
+  
     <p id="ex_version" class="foot_links">
       
     </p>
