@@ -7,73 +7,53 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>アップデート情報</title>
 
-  <style>
-    body {
-      width: 375px;
-      background-color: white;
-    }
-
-    h2{
-      text-align: center;
-    }
-    h3{
-      padding-left: 10px;
-      border-left: 5px solid #FF914B;
-      border-bottom: 2px solid #FF914B;
-    }
-
-    .icon {
-      height: 30px;
-    }
-
-    .banar {
-      width: 200px;
-    }
-
-    footer {
-      width: 100%;
-      color: black;
-      text-align: center;
-      padding: 10px 0;
-    }
-
-    ul {
-      margin-left: 2em;
-      padding-left: 0;
-    }
-
-    li {
-      text-align: left;
-      margin-left: 0;
-    }
-
-    .back {
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="/popup_files/css/destyle.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/popup_files/css/update.css">
+  
 </head>
 
 <body>
-  <div id="v125">
-    <h2>ver 1.2.5 更新情報</h2>
+  <h2>ver 2.0.0 更新情報</h2>
+  
+  <main class="update_contents">
+    <h3>変更点</h3>
+    <ul>
+      <li>「ニコニ広告ex.」ロゴ・アイコン・デザインをリニューアルしました。<br>
+        <img src="https://blog.nekozuki.me/img/nl33/change_logo.png" alt="新旧比較" srcset="">
+      </li>
+    </ul>
     <h3>機能追加</h3>
     <ul>
-      <li>「<a href="https://blog.nekozuki.me/nl33/" target="_blank" rel="noopener noreferrer">ニコニ広告ex. v2.0.0アップデートのお知らせ</a>」リンクを追記しました。</li>
+      <li>新サービス「<a href="https://koken.nicovideo.jp" target="_blank" rel="noopener noreferrer">ニコニ貢献</a>」に対応しました。上部タブ「貢献」から確認できます。</li>
     </ul>
-    <h3>v2.0.0について</h3>
-    <p>新サービス「ニコニ貢献」に対応する他、ロゴ・アイコン・デザイン変更などを行います。</p>
-    <p>詳細は上リンクをご確認ください。</p>
-
-    <h3>ニコニ貢献について</h3>
-    <p><a href="https://blog.nicovideo.jp/niconews/152442.html" target="_blank" rel="noopener noreferrer">ニコニコインフォ</a>で告知があったように、2021/06/09に、現在の「ニコニ広告＋ギフト」が終了し、「ニコニ貢献」に統合されます。</p>
-    <p>「ニコニ貢献」リリース後、当拡張機能の一部機能が使えなくなることが予想されますが、当日中（遅くても翌日中）には修正版（v2.0.0）をリリースしますので気長にお待ちいただけると幸いです。</p>
-    <p>また「ニコニ貢献」リリース関連による不具合等の報告は不要です。</p>
-  </div>
+    <h3>修正点</h3>
+    <ul>
+      <li>ニコニ貢献リリースに伴いズレてしまったチケットページのURLを修正しました。</li>
+    </ul>
+    <h3>Q&A</h3>
+    <ul>
+      <li>
+        Q: 視聴ページのコメント欄で広告できる機能は…<br>
+        A: 変更ありません。これまで通りお使い頂けます。
+      </li>
+      <li>
+        Q: 貢献度やランクはどこで確認するの？<br>
+        A: 貢献タブをクリック→サポーターページで確認できます。
+      </li>
+      <li>
+        Q: 拡張機能内で「感謝」したいんだけど<br>
+        A: 貢献タブをクリック→クリエイターページで行えます。
+      </li>
+    </ul>
+  </main>
 
 
   <footer>
     <a class="olink" href="https://forms.gle/stDfy9C48WMsEAG39" target="_blank">Feedback</a>　
     <a class="olink" href="https://github.com/AyumuNekozuki/nicoad-ex" target="_blank">GitHub</a>
+    <small>©2019-2021 AyumuNekozuki</small>
   </footer>
 
   <script src="popup.js"></script>

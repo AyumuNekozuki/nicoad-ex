@@ -66,7 +66,7 @@ function videoscript() {
             //iframe url replace
             var nicoID = location.pathname.slice(7, 18);
             var iframe = document.getElementById('nicoadex-iframe');
-            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/video/publish/' + nicoID + '?frontend_id=6&frontend_version=0&video_watch');
+            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/video/publish/' + nicoID);
 
             //他ボタンクリック時
             $(".ActionButton:not(#nicoadButton)").on('click', function () {
@@ -173,12 +173,12 @@ function livescript() {
             $('.___rich-view-status___2PXao').removeAttr('hidden');
             $('.___rich-view-status___2PXao').attr('aria-expanded', 'true');
             $('.___player-status___1VfkA').attr('style', 'display:none;');
-            $('.___rich-view-header___1KxaL').prepend('<div id="iframePanel-header"><h1 style="color:#252525; text-align:center; font-size:14px; margin:0; padding:0; line-height: 45px;">ニコニ広告EX.<a data-v-0d10b35d="" href="https://nekozuki.me/makes/nicoad-ex/" target="_blank" style="margin-left:8px;line-height:1;"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
+            $('.___rich-view-header___1KxaL').prepend('<div id="iframePanel-header"><h1 style="color:#252525; text-align:center; font-size:14px; margin:0; padding:0; line-height: 45px;">ニコニ広告EX.<a data-v-0d10b35d="" href="https://github.com/AyumuNekozuki/nicoad-ex" target="_blank" style="margin-left:8px;line-height:1;"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
 
             //iframe url replace
             var nicoID = location.pathname.slice(7, 18);
             var iframe = document.getElementById('RICH-IFRAME');
-            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID + '?frontendId=12');
+            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID);
         });
 
         //終了処理

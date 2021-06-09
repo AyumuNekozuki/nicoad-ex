@@ -2,15 +2,13 @@
 ![](https://img.shields.io/chrome-web-store/v/lfmmnpoacjifgojmhkegmhngbfhdjlmb) 
 ![](https://img.shields.io/amo/v/nicoad-ex)
 
-![](https://nekozuki.me/makes/nicoad-ex/http_images/logo_header.png)
+![](/images/logo.png)
 
 # ニコニ広告ex.
 
-ニコニコ動画・生放送ページのニコニ広告を、コメント欄に表示するブラウザ拡張機能です。
+ニコニコ動画・生放送ページのニコニ広告を、コメント欄に表示するブラウザ拡張機能です。ブラウザ拡張機能のボタンを押せば、どのページからでも、チケットの確認やふくびきなどを行うことが出来ます。
 
 [Chrome Web Store](https://chrome.google.com/webstore/detail/%E3%83%8B%E3%82%B3%E3%83%8B%E5%BA%83%E5%91%8Aex/lfmmnpoacjifgojmhkegmhngbfhdjlmb) / [Firefox Add-Ons](https://addons.mozilla.org/ja/firefox/addon/nicoad-ex/) にて公開中です。
-
-[特設サイト](https://nekozuki.me/makes/nicoad-ex/)
 
 ---
 
@@ -38,4 +36,4 @@
 MIT
 
 ## 作者
-AyumuNekozuki / @nekozuki_dev / https://portfolio.nekozuki.me
+AyumuNekozuki / @nekozuki_dev 
