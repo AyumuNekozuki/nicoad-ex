@@ -16,7 +16,7 @@ main.update_contents{
 
 h2{
   text-align: center;
-  margin: 20px 10px 0;
+  margin: 0 10px;
   padding: 10px 0;
   font-size: 18px;
   border-bottom: #999 1px solid;
@@ -30,6 +30,13 @@ h3{
 p{
   margin: 10px 0;
 }
+li:nth-child(2n){
+  margin: 10px 0;
+}
+img{
+  width: 100%;
+}
+
 main.update_contents a{
   color: #0080ff;
   text-decoration: underline;

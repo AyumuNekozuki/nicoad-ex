@@ -61,7 +61,8 @@ nav.nav_menu ul li button:hover::after{
 /* iframe */
 main #iframe{
   width: 100%;
-  height: 400px;
+  height: 450px;
+  border: .5px solid #ddd;
 }
 
 /* footer */

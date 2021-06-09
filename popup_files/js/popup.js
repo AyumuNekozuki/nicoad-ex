@@ -17,17 +17,17 @@ $(document).ready(function(){
 $('#page_ticket').on('click',function(){
   $('.navbut').removeClass('active');
   $(this).addClass('active');
-  iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/my#tickets');
+  iframe.contentWindow.location.replace('https://koken.nicovideo.jp/ticket');
 });
 $('#page_hukubiki').on('click',function(){
   $('.navbut').removeClass('active');
   $(this).addClass('active');
   iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/campaign');
 });
-$('#page_thanks').on('click',function(){
+$('#page_kouken').on('click',function(){
   $('.navbut').removeClass('active');
   $(this).addClass('active');
-  iframe.contentWindow.location.replace('http://example.com');
+  iframe.contentWindow.location.replace('https://koken.nicovideo.jp/supporter');
 });
 $('#page_update').on('click',function(){
   $('.navbut').removeClass('active');
