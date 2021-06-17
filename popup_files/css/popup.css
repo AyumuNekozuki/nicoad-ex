@@ -28,6 +28,8 @@ nav.nav_menu ul li{
   font-family: 'M PLUS Rounded 1c', sans-serif;
   font-size: 14px;
   display: block;
+  /* Windows環境 シャギー防止 */
+  transform: rotate(0.03deg);
 }
 nav.nav_menu ul li button{
   position: relative;

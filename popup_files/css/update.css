@@ -8,6 +8,9 @@ main.update_contents{
 :is(h2,h3,h4,h5,h6){
   font-family: 'M PLUS Rounded 1c', sans-serif;
   color: black;
+
+  /* Windows環境 シャギー防止 */
+  transform: rotate(0.03deg);
 }
 :is(h3,h4,h5,h6){
   display: inline-block;
