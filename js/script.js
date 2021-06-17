@@ -167,13 +167,17 @@ function livescript() {
             if (document.getElementById('settingclose-but')) {
                 document.getElementById("settingclose-but").click();
             }
+
             //ニコニ広告exヘッダ消す
-            $('#iframePanel-header').remove();
+            $('#nicoadex_iframePanel_header').remove();
             $('.___rich-view-status___2PXao').attr('id', 'iframePanel');
             $('.___rich-view-status___2PXao').removeAttr('hidden');
             $('.___rich-view-status___2PXao').attr('aria-expanded', 'true');
-            $('.___player-status___1VfkA').attr('style', 'display:none;');
-            $('.___rich-view-header___1KxaL').prepend('<div id="iframePanel-header"><h1 style="color:#252525; text-align:center; font-size:14px; margin:0; padding:0; line-height: 45px;">ニコニ広告EX.<a data-v-0d10b35d="" href="https://github.com/AyumuNekozuki/nicoad-ex" target="_blank" style="margin-left:8px;line-height:1;"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
+
+            //ステータスパネル＆コメント欄のhidden追加
+            $('.___player-status-panel___15EEA').attr('aria-hidden', 'true');
+
+            $('.___rich-view-header___1KxaL').prepend('<div id="nicoadex_iframePanel_header"><h1>ニコニ広告EX.<a data-v-0d10b35d="" href="https://github.com/AyumuNekozuki/nicoad-ex" target="_blank"><svg style="vertical-align: middle;" data-v-0d10b35d="" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"><circle data-v-0d10b35d="" cx="9" cy="9" r="9" fill="#0080ff"></circle> <path data-v-0d10b35d="" d="M10.2,12a.4.4,0,0,1,.4.4v1.2a.4.4,0,0,1-.4.4H7.8a.4.4,0,0,1-.4-.4V12.4a.4.4,0,0,1,.4-.4ZM4,5.6A1.6,1.6,0,0,1,5.6,4h6.8A1.6,1.6,0,0,1,14,5.6V8.2a1.6,1.6,0,0,1-1.6,1.6h-2a.4.4,0,0,0-.4.4v.6a.4.4,0,0,1-.4.4H8.4a.4.4,0,0,1-.4-.4V9a.8.8,0,0,1,.8-.8h2.4a.8.8,0,0,0,.8-.8v-1a.8.8,0,0,0-.8-.8H6.8a.8.8,0,0,0-.8.8V7.6a.4.4,0,0,1-.4.4H4.4A.4.4,0,0,1,4,7.6Z" fill="#fff"></path></svg></a></h1></div>')
 
             //iframe url replace
             var nicoID = location.pathname.slice(7, 18);
@@ -183,21 +187,26 @@ function livescript() {
 
         //終了処理
         function exit_nicoadex() {
-            if (document.getElementById('iframePanel-header')) {
-                $('#iframePanel-header').remove();
+            if (document.getElementById('nicoadex_iframePanel_header')) {
+                $('#nicoadex_iframePanel_header').remove();
             }
             $('.___rich-view-status___2PXao').removeAttr('aria-expanded');
             $('.___rich-view-status___2PXao').attr('aria-expanded', 'false');
             $('.___rich-view-status___2PXao').attr('hidden', '');
-            $('.___player-status___1VfkA').removeAttr('style');
+            
+            //ステータスパネル＆コメント欄のhidden除去
+            $('.___player-status-panel___15EEA').removeAttr('aria-hidden');
+            
             var iframe = document.getElementById('RICH-IFRAME');
             iframe.contentWindow.location.replace('(unknown)');
         }
 
-        $("#iframe-close-but, #fullscreen-but").on('click', function () {
+
+        $('#iframe-close-but, #fullscreen-but').on('click', function () {
+            console.log("ok");
             exit_nicoadex();
         });
-        $("#setting-but").on('click', function () {
+        $('#setting-but').on('click', function () {
             document.getElementById("iframe-close-but").click();
         });
 
@@ -208,7 +217,7 @@ function livescript() {
         $('.___add-button___1FEKw').addClass('adex-other');
         $('[data-content-type="broadcast_tool"]').addClass('adex-other');
         $('.adex-other').on('click', function () {
-            $('#iframePanel-header').remove();
+            $('#nicoadex_iframePanel_header').remove();
         });
     }
     var checkadex = function checkad() {

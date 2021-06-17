@@ -1,0 +1,12 @@
+#nicoadex_iframePanel_header h1{
+  color: #252525;
+  text-align: center; 
+  font-size: 14px; 
+  margin: 0;
+  padding: 0;
+  line-height: 45px;
+}
+#nicoadex_iframePanel_header h1 a{
+  margin-left: 8px;
+  line-height: 1;
+}
