@@ -162,6 +162,8 @@ function livescript() {
 
         //ボタンクリック時
         $("#nicoadButton").on('click', function () {
+            exit_nicoadex();
+
             //詳細設定画面 消す（バグ防止）
             $(".___close-button___23Wwj").attr('id', 'settingclose-but');
             if (document.getElementById('settingclose-but')) {
@@ -202,9 +204,11 @@ function livescript() {
         }
 
 
-        $('#iframe-close-but, #fullscreen-but').on('click', function () {
-            console.log("ok");
+        $('#iframe-close-but').on('click', function () {
             exit_nicoadex();
+        });
+        $('#fullscreen-but').on('click', function () {
+            document.getElementById("iframe-close-but").click();
         });
         $('#setting-but').on('click', function () {
             document.getElementById("iframe-close-but").click();
