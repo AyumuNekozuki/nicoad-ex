@@ -3,6 +3,11 @@ let manifestData = chrome.runtime.getManifest();
 let ex_version = manifestData.version + "";
 console.log("ニコニ広告ex.: v" + ex_version);
 
+function isDefaultButtonExist() {
+    const btnDefault = document.querySelector('[aria-label="ニコニ広告"], [data-title="ニコニ広告する"]')
+    return btnDefault != null
+}
+
 
 //ID取得
 window.onload = function getID() {
@@ -77,26 +82,16 @@ function videoscript() {
         });
     }
 
-    function v_checkadex() {
-        if (document.getElementById("nicoadButton")) {
-            console.log("ニコニ広告ex.: 動作中です");
-        } else {
-            main_video();
-        }
-    }
-
     function video_first() {
         //初回～
-        $('[data-title="ニコニ広告する"]').attr('id', 'nicoadButton');
-        if (document.getElementById("nicoadButton")) {
+        if (isDefaultButtonExist()) {
             main_video();
         } else {
-            console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。再実行します。");
+            console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
         }
     }
 
     video_first();
-    setInterval(v_checkadex, 2500);
 }
 
 
@@ -224,20 +219,25 @@ function livescript() {
             $('#nicoadex_iframePanel_header').remove();
         });
     }
-    var checkadex = function checkad() {
-        if (document.getElementById("nicoadButton")) {
+
+    //初回～
+    async function live_first() {
+        // ボタンが遅延上書きされる場合があるので、変更を検知して上書きする。
+        // 上書きによって消えない親要素を監視する。
+        const target = document.querySelector('[class*="ichiba-counter-section"]')
+        const observer = new MutationObserver(() => {
+            if (isDefaultButtonExist()) {
+                live_main()
+            }
+        })
+        observer.observe(target, { attributes: true, childList: true, subtree: true })
+
+        if (isDefaultButtonExist()) {
+            live_main()
         } else {
-            live_main();
+            console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
         }
     }
 
-    //初回～
-    $('[aria-label="ニコニ広告"]').attr('id', 'nicoadButton');
-    if (document.getElementById("nicoadButton")) {
-        live_main();
-    } else {
-        error_notAD();
-        console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
-    }
-    setInterval(checkadex, 2000);
+    live_first();
 }
