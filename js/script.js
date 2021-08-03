@@ -3,8 +3,12 @@ let manifestData = chrome.runtime.getManifest();
 let ex_version = manifestData.version + "";
 console.log("ニコニ広告ex.: v" + ex_version);
 
+async function sleep(msec) {
+    return new Promise(resolve => { setTimeout(() => { resolve() }, msec) })
+}
+
 function isDefaultButtonExist() {
-    const btnDefault = document.querySelector('[aria-label="ニコニ広告"], [data-title="ニコニ広告する"]')
+    const btnDefault = document.querySelector('[aria-label="ニコニ広告"], [data-title="ニコニ広告"]')
     return btnDefault != null
 }
 
@@ -82,13 +86,19 @@ function videoscript() {
         });
     }
 
-    function video_first() {
+    async function video_first() {
         //初回～
-        if (isDefaultButtonExist()) {
-            main_video();
-        } else {
-            console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
+        const maxRetry = 10
+        const interval = 1000
+        for (let i = 0; i <= maxRetry; i++) {
+            if (isDefaultButtonExist()) {
+                main_video();
+                return;
+            } else if (i <= maxRetry - 1) {
+                await sleep(interval);
+            }
         }
+        console.log("ニコニ広告ex.: ニコニ広告ボタンを取得できませんでした。");
     }
 
     video_first();
