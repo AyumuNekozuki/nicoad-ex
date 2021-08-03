@@ -1,0 +1,162 @@
+body{
+  overflow-x: hidden;
+}
+
+
+#nicoadex_overlay{
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: -380px;
+  width: 425px;
+  height: 100vh;
+  z-index: 1000000;
+  transition: all .3s ease;
+}
+
+#nicoadex_overlay.active{
+  right: 0;
+  width: 425px;
+}
+#nicoadex_overlay iframe{
+  border: none;
+  height: 100%;
+  width: 0px;
+}
+#nicoadex_overlay.active iframe{
+  background-color: #fafafa;
+  border: none;
+  border-left: 7.5px solid #252525;
+  height: 100%;
+  width: 100%;
+}
+#nicoadex_overlay #nicoadex_hide_but{
+  background-color: #252525;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/icon128.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center top;
+  border: none;
+  height: 70px;
+  width: calc(100% - 380px);
+  margin-top: 36px;
+  border-radius: 0 0 0 15px;
+  position: relative;
+}
+#nicoadex_overlay #nicoadex_hide_but::after{
+  content: "<<";
+  font-weight: bold;
+  color: #F57F29;
+  position: absolute;
+  bottom: 0;
+  left: 2.5;
+  padding-left: .75em;
+  line-height: 2.5;
+  display: block;
+}
+#nicoadex_overlay.active #nicoadex_hide_but::after{
+  content: ">>";
+}
+
+
+/* nicodark */
+.niconico-darkmode-setting-true #nicoadex_overlay.active iframe{
+  background-color: #1a1b1c;
+}
+
+/* default css */
+#main .im_head_bar .inner .inner_content .nicoad #nicoad_button_illust{ /* seiga */
+  display: inline-block;
+  box-shadow: 2px 2px 2px #ddd;
+  border-width: 1px 1px 1px 1px;
+  border-color: #ccc;
+  border-style: solid;
+  border-radius: 5px 5px 5px 5px;
+  top: 12px;
+  width: 114px;
+  height: 34px;
+  background: url(chrome-extension://__MSG_@@extension_id__/images/logo.png), linear-gradient(#ffffff 0%, #f2f2f2 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 1px 1px #fff;
+  position: relative;
+  margin-bottom: 14px;
+}
+#main .im_head_bar .inner .inner_content .nicoad #nicoad_button_illust:hover{
+  cursor: pointer;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/logo.png);
+  background-color: #ffffff;
+}
+
+
+#nicoad_button_solid{ /* solid */
+  border: 0px;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(244, 232, 197);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/icon128.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center center;
+  border-radius: 2px;
+}
+.css-7whenc.ehqcs812>a{
+  display: none;
+}
+#nicoad_button_solid_wide{
+  box-sizing: border-box;
+  position: relative;
+  height: 68px;
+  border: 1px solid rgb(219, 219, 219);
+  background-color: rgb(244, 232, 197);
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/logo.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center center;
+  display: block;
+  text-decoration: none;
+  width: 280px;
+  margin-left: 15px;
+}
+#nicoad_button_solid_wide:hover{
+  cursor: pointer;
+}
+
+
+
+/* nicodic */
+#nicoad_button_dic_top,
+#nicoad_button_dic_bottom{
+  height: 32px;
+  background-color: #fff;
+  border: 1px solid #fdae32;
+  border-radius: 3px;
+  color: #fdae32;
+  font-size: 12px;
+  font-weight: bold;
+  padding-right: 12px;
+  cursor: pointer;
+  display: block;
+  min-width: 74px;
+  cursor: pointer;
+}
+#nicoad_button_dic_top::before,
+#nicoad_button_dic_bottom::before{
+  content: "";
+  background-image: url(chrome-extension://__MSG_@@extension_id__/images/icon128.png);
+  background-repeat: no-repeat;
+  background: cover;
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  vertical-align: middle;
+  display: inline-block;
+}
