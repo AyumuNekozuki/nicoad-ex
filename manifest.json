@@ -21,7 +21,8 @@
                 "js/jquery-3.5.1.min.js","js/script.js"
             ],
             "css":[
-                "css/nicolive.css"
+                "css/nicolive.css",
+                "css/nicovideo.css"
             ]
         },
         {

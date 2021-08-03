@@ -55,12 +55,12 @@ function videoscript() {
             $('#PanelContainer').html('<div class="FloatingPanelContainer is-visible"><div class="AddVideoListPanelContainer"><div class="AddVideoListPanelContainer-header">ニコニ広告ex. <button type="button" class="ActionButton CloseButton AddVideoListPanelContainer-header-closeButton" id="exclose"><div class="CloseButton-inner"><svg viewBox="0 0 100 100" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4"><path d="M50 32.8L81.6 1.2a4.1 4.1 0 0 1 5.8 0l11.4 11.4a4.1 4.1 0 0 1 0 5.9L67.2 50l31.6 31.6a4.1 4.1 0 0 1 0 5.8L87.4 98.8a4.1 4.1 0 0 1-5.9 0L50 67.2 18.4 98.8a4.1 4.1 0 0 1-5.8 0L1.2 87.4a4.1 4.1 0 0 1 0-5.9L32.8 50 1.2 18.4a4.1 4.1 0 0 1 0-5.8L12.6 1.2a4.1 4.1 0 0 1 5.9 0L50 32.8z"></path></svg></div></button></div><div class="AddVideoListPanelContainer-content""><div class="AddingMylistPanel" style="height:100%;"><iframe id="nicoadex-iframe" src="hoge" style="border:none; width:100%; height:100%;"></iframe></div></div></div></div>');
 
             //:before(パネルヘッダの▲)修正
-            $('head').append('<style>.AddVideoListPanelContainer:before { left: 84px; }</style>');
-
+            $('.AddVideoListPanelContainer').addClass('NicoadExPanelContainer')
+            
             //close処理
             $("#exclose").on('click', function () {
                 $('#PanelContainer').html('');
-                $('head').append('<style>.AddVideoListPanelContainer:before { left: 48px; }</style>');
+                $('.AddVideoListPanelContainer').removeClass('NicoadExPanelContainer')
             });
 
             //iframe url replace
