@@ -15,25 +15,17 @@ function isDefaultButtonExist() {
 
 //ID取得
 window.onload = function getID() {
-    //1 get movieID
-    var nicoID = location.pathname.slice(7, 18);
-    var type = nicoID.slice(0, 2);
-    console.log("ニコニ広告ex.: ID = " + nicoID);
-    console.log("ニコニ広告ex.: type = " + type);
-
     //分岐
-    if (type == "sm" || type == "nm") {
-        console.log("ニコニ広告ex.: type = ニコニコ動画");
+    if (location.hostname == "www.nicovideo.jp") {
+        var nicoID = $('link[rel="canonical"]').attr('href').slice(31);
+        console.log("ニコニ広告ex.: mode = ニコニコ動画");
+        console.log("ニコニ広告ex.: ID = " + nicoID);
         videoscript();
-    }
-    else if (type == "lv" || type == "co") {
-        console.log("ニコニ広告ex.: type = ニコニコ生放送");
+    }else{
+        var nicoID = location.pathname.slice(7, 18);
+        console.log("ニコニ広告ex.: mode = ニコニコ生放送");
+        console.log("ニコニ広告ex.: ID = " + nicoID);
         livescript();
-    }
-    else {
-        console.log("ニコニ広告ex.: type = ニコニコ動画(CH)");
-        videoscript();
-        video_buginfo();
     }
 };
 
@@ -65,15 +57,13 @@ function videoscript() {
                 if ($(".AddVideoListPanelContainer-header")[0].textContent == "リストに登録") {
                     $(".MylistButton").click();
                 }
-            } catch (err) {
-                console.log("ニコニ広告ex.: " + err);
-            }
+            } catch (err) { }
 
             $('.MainContainer-floatingPanel').attr('id', 'PanelContainer');
             $('#PanelContainer').html('<div class="FloatingPanelContainer is-visible"><div class="AddVideoListPanelContainer"><div class="AddVideoListPanelContainer-header">ニコニ広告ex. <button type="button" class="ActionButton CloseButton AddVideoListPanelContainer-header-closeButton" id="exclose"><div class="CloseButton-inner"><svg viewBox="0 0 100 100" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.4"><path d="M50 32.8L81.6 1.2a4.1 4.1 0 0 1 5.8 0l11.4 11.4a4.1 4.1 0 0 1 0 5.9L67.2 50l31.6 31.6a4.1 4.1 0 0 1 0 5.8L87.4 98.8a4.1 4.1 0 0 1-5.9 0L50 67.2 18.4 98.8a4.1 4.1 0 0 1-5.8 0L1.2 87.4a4.1 4.1 0 0 1 0-5.9L32.8 50 1.2 18.4a4.1 4.1 0 0 1 0-5.8L12.6 1.2a4.1 4.1 0 0 1 5.9 0L50 32.8z"></path></svg></div></button></div><div class="AddVideoListPanelContainer-content""><div class="AddingMylistPanel" style="height:100%;"><iframe id="nicoadex-iframe" src="hoge" style="border:none; width:100%; height:100%;"></iframe></div></div></div></div>');
 
             //:before(パネルヘッダの▲)修正
-            $('.AddVideoListPanelContainer').addClass('NicoadExPanelContainer')
+            $('.AddVideoListPanelContainer').addClass('NicoadExPanelContainer');
             
             //close処理
             $("#exclose").on('click', function () {
@@ -82,9 +72,9 @@ function videoscript() {
             });
 
             //iframe url replace
-            var nicoID = location.pathname.slice(7, 18);
-            var iframe = document.getElementById('nicoadex-iframe');
-            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/video/publish/' + nicoID);
+            var nicoID = $('link[rel="canonical"]').attr('href').slice(31);
+            var nicoad_url = 'https://nicoad.nicovideo.jp/video/publish/' + nicoID;
+            $("#nicoadex-iframe").attr("src", nicoad_url);
 
             //他ボタンクリック時
             $(".ActionButton:not(#nicoadButton)").on('click', function () {
