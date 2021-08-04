@@ -8,7 +8,7 @@ async function sleep(msec) {
 }
 
 function isDefaultButtonExist() {
-    const btnDefault = document.querySelector('[aria-label="ニコニ広告"], [data-title="ニコニ広告"]')
+    const btnDefault = document.querySelector('[aria-label="ニコニ広告"], [data-title="ニコニ広告する"]')
     return btnDefault != null
 }
 
