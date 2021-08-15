@@ -74,7 +74,7 @@ function videoscript() {
             //iframe url replace
             var nicoID = $('link[rel="canonical"]').attr('href').slice(31);
             var nicoad_url = 'https://nicoad.nicovideo.jp/video/publish/' + nicoID;
-            $("#nicoadex-iframe").attr("src", nicoad_url);
+            document.getElementById('nicoadex-iframe').contentWindow.location.replace(nicoad_url);
 
             //他ボタンクリック時
             $(".ActionButton:not(#nicoadButton)").on('click', function () {
@@ -104,22 +104,6 @@ function videoscript() {
 }
 
 
-//ニコ動-バグインフォ(CH動画用)
-function video_buginfo() {
-    $("#nicoadButton").on('click', function () {
-        $(".AddVideoListPanelContainer-header").css({
-            height: '60px'
-        })
-        $('.AddVideoListPanelContainer-header').append('<p id="nicoad-buginfo" style="font-size:12px;"><a href="https://github.com/AyumuNekozuki/nicoad-ex/issues/1" target="_blank" title="ニコニ広告ex.：一部チャンネル動画で貢献度ランキングが表示されない不具合" style="color:#1DA1F2; text-decoration:underline;">広告ex.:一部チャンネル動画で貢献度ランキングが表示されな...</a></p>')
-        $("<p>", {
-            id: 'nidoad-buginfo',
-            style: 'font-size:12px;'
-        }).append('.AddVideoListPanelContainer-header');
-    });
-    $(".ActionButton :not(#nicoadButton)").on('click', function () {
-        $("#nicoad-buginfo").remove();
-    });
-}
 
 //ニコ生
 function livescript() {
@@ -187,8 +171,9 @@ function livescript() {
 
             //iframe url replace
             var nicoID = location.pathname.slice(7, 18);
-            var iframe = document.getElementById('RICH-IFRAME');
-            iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/live/publish/' + nicoID);
+            var nicoad_url = 'https://nicoad.nicovideo.jp/live/publish/' + nicoID;
+            document.getElementById('RICH-IFRAME').contentWindow.location.replace(nicoad_url);
+            
         });
 
         //終了処理

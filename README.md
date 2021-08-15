@@ -30,10 +30,14 @@
 3. DLしたファイルを読み込み編集
 
 ### 注意事項
-同じスクリプトでChrome/Firefoxどちらも動作する必要があります。
+- 同じスクリプトでChrome/Firefoxどちらも動作する必要があります。
+- iframeの`src`の書き換えは、`contentWindow.location.replace`を利用し、jQueryを利用しないこと。以下補足です。
+  - jQueryの`attr`では履歴（戻る／進む）ボタンに影響が出ます。
+  - jQueryの`$('#example_iframe_id')`での指定では、`contentWindow.location.replace`が利用できません。
 
 ## ライセンス
 MIT
 
 ## 作者
 AyumuNekozuki / @nekozuki_dev 
+

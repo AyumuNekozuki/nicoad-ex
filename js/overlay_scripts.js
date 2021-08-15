@@ -21,7 +21,7 @@ $(function(){
   console.log("ニコニ広告ex.: " + nicoID);
 
 
-  $('body').prepend('<div id="nicoadex_overlay"><button id="nicoadex_hide_but"></button><iframe id="nicoadex_overlay_iframe"></iframe></div>');
+  $('body').prepend('<div id="nicoadex_overlay"><button id="nicoadex_hide_but"></button><iframe id="nicoadex_overlay_iframe" src=""></iframe></div>');
 
   switch(location.hostname){
     case "seiga.nicovideo.jp":
@@ -76,9 +76,9 @@ $(function(){
 
     if($("#nicoadex_overlay").hasClass("active")){
       $("#nicoadex_overlay").removeClass("active");
-      $("#nicoadex_overlay_iframe").attr("src", "");
+      document.getElementById('nicoadex_overlay_iframe').contentWindow.location.replace("");
     }else{
-      $("#nicoadex_overlay_iframe").attr("src", nicoad_url);
+      document.getElementById('nicoadex_overlay_iframe').contentWindow.location.replace(nicoad_url);
       $("#nicoadex_overlay").addClass("active");
     }
   });
