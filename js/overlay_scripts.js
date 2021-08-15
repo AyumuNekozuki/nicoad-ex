@@ -1,3 +1,32 @@
+//初期化 issue #36
+// ブラウザ側のwindowじゃないと各種イベントが見えない
+const elm = document.createElement("script");
+elm.innerHTML = `
+  // 履歴追加を検知
+  const originalPushState = window.history.pushState;
+  window.history.pushState = (state, title, url) => {
+    window.dispatchEvent(new window.Event("locationchange"));
+    return originalPushState.call(window.history, state, title, url);
+  }
+
+  // 戻る進むを検知
+  window.addEventListener('popstate', function (event) {
+    window.dispatchEvent(new window.Event('locationchange'));
+  });
+
+  // カスタムイベントで受け取る
+  window.addEventListener("locationchange", (e) => {
+    if(document.getElementById('nicoadex_overlay').classList.contains("active")){
+      document.getElementById('nicoadex_overlay').classList.remove('active');
+      document.getElementById('nicoadex_overlay_iframe').contentWindow.location.replace("https://nicoad.nicovideo.jp/solid/publish/");
+    }
+  })
+`;
+if(location.hostname == "3d.nicovideo.jp"){
+  document.head.appendChild(elm);
+}
+
+
 //version
 const manifestData = chrome.runtime.getManifest();
 const ex_version = manifestData.version + "";
