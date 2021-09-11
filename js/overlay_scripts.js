@@ -16,6 +16,16 @@ elm.innerHTML = `
 
   // カスタムイベントで受け取る
   window.addEventListener("locationchange", (e) => {
+    setTimeout(() => {
+      $('.eh955zv2.emfyha70').remove();
+      $('.css-zid5zk.e1ype1e01').prepend('<button id="nicoad_button_solid"></button>');
+      $('.css-iwu0ks').remove();
+      $('.css-7whenc.ehqcs812').append('<button id="nicoad_button_solid_wide"></button>');
+      $('#nicoad_button_solid, #nicoad_button_solid_wide').on('click', function() {
+        $('#nicoadex_hide_but').trigger("click");
+      });
+    }, 1250);
+
     if(document.getElementById('nicoadex_overlay').classList.contains("active")){
       document.getElementById('nicoadex_overlay').classList.remove('active');
       document.getElementById('nicoadex_overlay_iframe').contentWindow.location.replace("https://nicoad.nicovideo.jp/solid/publish/");
@@ -64,13 +74,16 @@ $(function(){
 
     case "3d.nicovideo.jp":
       nicoad_url = "https://nicoad.nicovideo.jp/solid/publish/" + nicoID;
-      $('.eh955zv2.emfyha70').remove();
-      $('.css-zid5zk.e1ype1e01').prepend('<button id="nicoad_button_solid"></button>');
-      $('a.ehqcs810.css-1eevzgf.er2nyud7').remove();
-      $('.css-7whenc.ehqcs812').append('<button id="nicoad_button_solid_wide"></button>');
-      $('#nicoad_button_solid, #nicoad_button_solid_wide').on('click', function() {
-        $('#nicoadex_hide_but').trigger("click");
-      });
+      setTimeout(() => {
+        $('.eh955zv2.emfyha70').remove();
+        $('.css-zid5zk.e1ype1e01').prepend('<button id="nicoad_button_solid"></button>');
+        $('.css-iwu0ks').remove();
+        $('.css-7whenc.ehqcs812').append('<button id="nicoad_button_solid_wide"></button>');
+        $('#nicoad_button_solid, #nicoad_button_solid_wide').on('click', function() {
+          $('#nicoadex_hide_but').trigger("click");
+        });
+      }, 1250);
+
       $('a').on('click', function() {
         nicoID = location.pathname.slice(7, 18);
         if(nicoID == ""){ nicoID = "hogehoge" };
