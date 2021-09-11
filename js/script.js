@@ -181,12 +181,15 @@ function livescript() {
             if (document.getElementById('nicoadex_iframePanel_header')) {
                 $('#nicoadex_iframePanel_header').remove();
             }
+
             $('.___rich-view-status___2PXao').removeAttr('aria-expanded');
             $('.___rich-view-status___2PXao').attr('aria-expanded', 'false');
             $('.___rich-view-status___2PXao').attr('hidden', '');
             
             //ステータスパネル＆コメント欄のhidden除去
-            $('.___player-status-panel___15EEA').removeAttr('aria-hidden');
+            if(!$('div[fullscreen="target"]')){
+                $('.___player-status-panel___15EEA').removeAttr('aria-hidden');
+            }
             
             var iframe = document.getElementById('RICH-IFRAME');
             iframe.contentWindow.location.replace('(unknown)');
