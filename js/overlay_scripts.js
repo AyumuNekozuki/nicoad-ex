@@ -92,16 +92,23 @@ $(function(){
       break;
 
     case "dic.nicovideo.jp":
-      nicoad_url = "https://nicoad.nicovideo.jp/nicodic/publish/" + nicoID;
-      $('#nicoad_point_article_pc_a_area > a').remove();
-      $('#nicoad_point_article_pc_a_area').prepend('<button id="nicoad_button_dic_top"><span class="st-button_nicoad-text">ニコニ広告する</span></button>');
-      $('#nicoad_point_article_pc_info_area > a').remove();
-      $('#nicoad_point_article_pc_info_area').prepend('<button id="nicoad_button_dic_bottom"><span class="st-button_nicoad-text">ニコニ広告する</span></button>');
-      $('p.a-nicoad_supporter-othersLink > a').remove();
-      $('p.a-nicoad_supporter-othersLink').prepend('<a id="nicoad_button_dic_link">広告主をもっとみる</a>');
-      $('#nicoad_button_dic_top, #nicoad_button_dic_bottom, #nicoad_button_dic_link').on('click', function() {
-        $('#nicoadex_hide_but').trigger("click");
-      });
+      var dic_path = location.pathname.slice(0,3);
+      console.log(dic_path);
+      if(dic_path == "/p/"){
+        $('#nicoadex_overlay').hide();
+      }else{
+        $('#nicoadex_overlay').show();
+        nicoad_url = "https://nicoad.nicovideo.jp/nicodic/publish/" + nicoID;
+        $('#nicoad_point_article_pc_a_area > a').remove();
+        $('#nicoad_point_article_pc_a_area').prepend('<button id="nicoad_button_dic_top"><span class="st-button_nicoad-text">ニコニ広告する</span></button>');
+        $('#nicoad_point_article_pc_info_area > a').remove();
+        $('#nicoad_point_article_pc_info_area').prepend('<button id="nicoad_button_dic_bottom"><span class="st-button_nicoad-text">ニコニ広告する</span></button>');
+        $('p.a-nicoad_supporter-othersLink > a').remove();
+        $('p.a-nicoad_supporter-othersLink').prepend('<a id="nicoad_button_dic_link">広告主をもっとみる</a>');
+        $('#nicoad_button_dic_top, #nicoad_button_dic_bottom, #nicoad_button_dic_link').on('click', function() {
+          $('#nicoadex_hide_but').trigger("click");
+        });
+      }
       break;
 
     default:
