@@ -3,6 +3,14 @@ let manifestData = chrome.runtime.getManifest();
 let ex_version = manifestData.version + "";
 console.log("ニコニ広告ex.: v" + ex_version);
 
+async function sleep(msec) {
+  return new Promise(resolve => { setTimeout(() => { resolve() }, msec) })
+}
+function isDefaultButtonExist() {
+  const btnDefault = document.querySelector('[aria-label="ニコニ広告"], [data-title="ニコニ広告する"]')
+  return btnDefault != null
+}
+
 let nicoID = "";
 
 //ID取得
