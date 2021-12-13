@@ -48,8 +48,6 @@ function livescript() {
       $('[aria-label="ニコニ広告"]').attr('id', 'nicoadButton');
       $('#nicoadButton').remove();
 
-      console.log("debug01");
-
       //ボタン作成
       $("<button>", {
           type: 'button',
@@ -60,8 +58,6 @@ function livescript() {
       $('#nicoadButton').attr('data-content-type', 'nicoadex');
       $('#nicoadButton').attr('data-target-order', order);
       $("#nicoadButton").html('<svg viewBox="-30 -30 160 160" id="nicoadSVG" class="___item-image___1P0Xx" style="fill:#FF7F27 !important;"><path d="M94.3 68.4a5.7 5.7 0 0 0 2.6-1.4c3.2-3.2 1.8-10.3-3-18.9l-5.7 1c2 4.5 2.6 8 1 9.6-3.8 3.8-17.6-3.9-30.8-17s-21-27-17.1-30.9c1.6-1.6 5-1 9.5 1L52 6C43.3 1.3 36.2 0 33 3.1a5.7 5.7 0 0 0-1.4 2.6L13.9 71.6 1.6 74.9a2.1 2.1 0 0 0-1 .5c-2.2 2.2 1.4 9.4 8 16s13.8 10.2 16 8a2.1 2.1 0 0 0 .5-1L28.4 86l65.9-17.7z"></path><rect x="60.1" y="20.7" width="31.6" height="6.8" rx="3.1" ry="3.1" transform="rotate(-45 76 24)"></rect><rect x="47.4" y="10.4" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-75 61.5 13.8)"></rect><rect x="72.1" y="35.1" width="28.2" height="6.8" rx="3.1" ry="3.1" transform="rotate(-15 86.2 38.5)"></rect></svg>')
-
-      console.log("debug02");
 
       //いろいろid付与
       $(".___close-button___2Ohn5").attr('id', 'iframe-close-but');
@@ -98,7 +94,6 @@ function livescript() {
 
       //終了処理
       function exit_nicoadex() {
-        console.log("debug000")
           if (document.getElementById('nicoadex_iframePanel_header')) {
               $('#nicoadex_iframePanel_header').remove();
           }
@@ -109,7 +104,6 @@ function livescript() {
           
           //ステータスパネル＆コメント欄のhidden除去
           if(!$('div[data-browser-fullscreen="target"]').length){
-            console.log("debug00000000")
             $('.___player-status-panel___jaSDM.___player-status-panel___1qLZ6').removeAttr('aria-hidden');
           }
           
@@ -120,7 +114,6 @@ function livescript() {
 
       $('#iframe-close-but').on('click', function () {
           exit_nicoadex();
-          console.log("debug0001")
       });
       $('#fullscreen-but').on('click', function () {
           document.getElementById("iframe-close-but").click();
