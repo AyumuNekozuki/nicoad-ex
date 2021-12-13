@@ -43,6 +43,12 @@ body{
   border-radius: 0 0 0 15px;
   position: relative;
 }
+@-moz-document url-prefix(){ /* firefox */
+  #nicoadex_overlay #nicoadex_hide_but{
+    background-image: url(moz-extension://__MSG_@@extension_id__/images/icon128.png);
+  }
+}
+
 #nicoadex_overlay #nicoadex_hide_but::after{
   content: "<<";
   font-weight: bold;
@@ -88,6 +94,14 @@ body{
   background-image: url(chrome-extension://__MSG_@@extension_id__/images/logo.png);
   background-color: #ffffff;
 }
+@-moz-document url-prefix(){ /* firefox */
+  #main .im_head_bar .inner .inner_content .nicoad #nicoad_button_illust{
+    background: url(moz-extension://__MSG_@@extension_id__/images/logo.png), linear-gradient(#ffffff 0%, #f2f2f2 100%);
+  }
+  #main .im_head_bar .inner .inner_content .nicoad #nicoad_button_illust:hover{
+    background-image: url(moz-extension://__MSG_@@extension_id__/images/logo.png);
+  }
+}
 
 
 #nicoad_button_solid{ /* solid */
@@ -130,6 +144,15 @@ body{
   cursor: pointer;
 }
 
+@-moz-document url-prefix(){ /* firefox */
+  #nicoad_button_solid{
+    background-image: url(moz-extension://__MSG_@@extension_id__/images/icon128.png);
+  }
+  #nicoad_button_solid_wide{
+    background-image: url(moz-extension://__MSG_@@extension_id__/images/logo.png);
+  }
+}
+
 
 
 /* nicodic */
@@ -159,4 +182,10 @@ body{
   background-size: cover;
   vertical-align: middle;
   display: inline-block;
+}
+@-moz-document url-prefix(){ /* firefox */
+  #nicoad_button_dic_top::before,
+  #nicoad_button_dic_bottom::before{
+    background-image: url(moz-extension://__MSG_@@extension_id__/images/icon128.png);
+  }
 }
