@@ -52,11 +52,12 @@
     },
     {
       "matches": [
-        "https://nicoad.nicovideo.jp/campaign"
+        "https://koken.nicovideo.jp/ticket?nicoadex",
+        "https://koken.nicovideo.jp/creator?nicoadex"
       ],
       "js": [
         "js/jquery-3.5.1.min.js",
-        "popup_files/js/campaign.js"
+        "popup_files/js/open_newtabs.js"
       ],
       "all_frames": true
     }

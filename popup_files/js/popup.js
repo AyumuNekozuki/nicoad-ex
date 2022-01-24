@@ -17,7 +17,7 @@ $(document).ready(function(){
 $('#page_ticket').on('click',function(){
   $('.navbut').removeClass('active');
   $(this).addClass('active');
-  iframe.contentWindow.location.replace('https://koken.nicovideo.jp/ticket');
+  iframe.contentWindow.location.replace('https://koken.nicovideo.jp/ticket?nicoadex');
 });
 $('#page_hukubiki').on('click',function(){
   $('.navbut').removeClass('active');
@@ -27,7 +27,7 @@ $('#page_hukubiki').on('click',function(){
 $('#page_kouken').on('click',function(){
   $('.navbut').removeClass('active');
   $(this).addClass('active');
-  iframe.contentWindow.location.replace('https://koken.nicovideo.jp/supporter');
+  iframe.contentWindow.location.replace('https://koken.nicovideo.jp/supporter?nicoadex');
 });
 $('#page_update').on('click',function(){
   $('.navbut').removeClass('active');
