@@ -1,43 +1,69 @@
-![](https://img.shields.io/github/license/AyumuNekozuki/nicoad-ex)
-![](https://img.shields.io/chrome-web-store/v/lfmmnpoacjifgojmhkegmhngbfhdjlmb) 
-![](https://img.shields.io/amo/v/nicoad-ex)
+# nicoadex_web
 
-![](/images/logo.png)
+## Build Setup
 
-# ニコニ広告ex.
+```bash
+# install dependencies
+$ yarn install
 
-ニコニコ動画・生放送ページのニコニ広告を、コメント欄に表示するブラウザ拡張機能です。ブラウザ拡張機能のボタンを押せば、どのページからでも、チケットの確認やふくびきなどを行うことが出来ます。
+# serve with hot reload at localhost:3000
+$ yarn dev
 
-[Chrome Web Store](https://chrome.google.com/webstore/detail/%E3%83%8B%E3%82%B3%E3%83%8B%E5%BA%83%E5%91%8Aex/lfmmnpoacjifgojmhkegmhngbfhdjlmb) / [Firefox Add-Ons](https://addons.mozilla.org/ja/firefox/addon/nicoad-ex/) にて公開中です。
+# build for production and launch server
+$ yarn build
+$ yarn start
 
----
+# generate static project
+$ yarn generate
+```
 
-## 必要条件
-以下のいずれかを利用して開発に参加することができます。
-- Google Chrome 最新版
-- Mozilla Firefox 最新版
+For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-（どちらもOSは問わないが最新のものであることが条件）
+## Special Directories
 
-## 使用言語
-- JavaScript
-- jQuery
+You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
 
-## 開発への参加
-### 環境構築
-1. 最新のリポジトリをDL
-2. ブラウザの設定からデベロッパーモード(Chromeのみ)を有効化
-3. DLしたファイルを読み込み編集
+### `assets`
 
-### 注意事項
-- 同じスクリプトでChrome/Firefoxどちらも動作する必要があります。
-- iframeの`src`の書き換えは、`contentWindow.location.replace`を利用し、jQueryを利用しないこと。以下補足です。
-  - jQueryの`attr`では履歴（戻る／進む）ボタンに影響が出ます。
-  - jQueryの`$('#example_iframe_id')`での指定では、`contentWindow.location.replace`が利用できません。
+The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
 
-## ライセンス
-MIT
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
 
-## 作者
-AyumuNekozuki / @nekozuki_dev 
+### `components`
 
+The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+
+### `layouts`
+
+Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+
+
+### `pages`
+
+This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+
+### `plugins`
+
+The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+
+### `static`
+
+This directory contains your static files. Each file inside this directory is mapped to `/`.
+
+Example: `/static/robots.txt` is mapped as `/robots.txt`.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
+
+### `store`
+
+This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
+
+More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
