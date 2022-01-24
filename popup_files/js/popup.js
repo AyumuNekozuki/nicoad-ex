@@ -22,7 +22,7 @@ $('#page_ticket').on('click',function(){
 $('#page_hukubiki').on('click',function(){
   $('.navbut').removeClass('active');
   $(this).addClass('active');
-  iframe.contentWindow.location.replace('https://nicoad.nicovideo.jp/campaign');
+  iframe.contentWindow.location.replace('https://nicoadex.nekozuki.me/api/campaign');
 });
 $('#page_kouken').on('click',function(){
   $('.navbut').removeClass('active');
