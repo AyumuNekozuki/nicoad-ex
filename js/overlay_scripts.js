@@ -94,6 +94,7 @@ $(function(){
     case "dic.nicovideo.jp":
       var dic_path = location.pathname.slice(0,3);
       console.log(dic_path);
+
       if(dic_path == "/p/"){
         $('#nicoadex_overlay').hide();
       }else{
@@ -108,6 +109,10 @@ $(function(){
         $('#nicoad_button_dic_top, #nicoad_button_dic_bottom, #nicoad_button_dic_link').on('click', function() {
           $('#nicoadex_hide_but').trigger("click");
         });
+      }
+
+      if(dic_path=="/" || dic_path=="/oe" || dic_path=="/b/"){
+        $('#nicoadex_overlay').remove();
       }
       break;
 
