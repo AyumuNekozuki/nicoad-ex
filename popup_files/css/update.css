@@ -2,7 +2,7 @@ main.update_contents{
   padding: 10px 10px 0;
   font-size: 14px;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 :is(h2,h3,h4,h5,h6){

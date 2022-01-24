@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ニコニ広告ex.",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "ニコニコ動画・生放送内のニコニ広告を生放送ギフトのようにコメント欄に表示させます。",
   "icons": {
     "16": "images/icon16.png",
