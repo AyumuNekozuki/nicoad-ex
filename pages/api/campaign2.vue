@@ -7,9 +7,12 @@
           <!-- <a :href="item.url">
             <img :src="item.bannerImageUrl" :alt="item.text" srcset="">
           </a> -->
-          <a :href="item.url" target="_blank" rel="noopener noreferrer">
+          <a :href="item.bannerImageUrl" target="_blank" rel="noopener noreferrer">
             <div class="thumbarea">
-              <img :src="'https://api.nekozuki.me/api/ogpimg?url='+item.url" alt="" srcset="">
+              <img :src="item.url" alt="" srcset="" crossorigin>
+            </div>
+            <div class="thumbarea">
+              <img :src="'https://api.nekozuki.me/api/ogpimg?url='+item.url" alt="" srcset="" crossorigin>
             </div>
             <span v-if="item.url !== 'https://blog.nicovideo.jp/niconews/124652.html?ref=202008nicoad&conductorId=3405&frameMasterId=7'">{{ item.text }}</span>
             <span v-if="item.url == 'https://blog.nicovideo.jp/niconews/124652.html?ref=202008nicoad&conductorId=3405&frameMasterId=7'">ﾆｺﾆｺﾌﾟﾚﾐｱﾑ 年額払いで入会すると1200pt広告チケット！</span>
