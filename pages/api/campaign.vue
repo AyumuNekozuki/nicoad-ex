@@ -4,12 +4,8 @@
     <div class="campaign_data">
       <div class="item_wrap" v-if="campaign_data && campaign_data.meta.status == 200">
         <div class="item" v-for="item in campaign_data.data.conductors" :key="item">
-          <!-- <a :href="item.url">
-            <img :src="item.bannerImageUrl" :alt="item.text" srcset="">
-          </a> -->
           <a :href="item.url" target="_blank" rel="noopener noreferrer">
-            <span v-if="item.url !== 'https://blog.nicovideo.jp/niconews/124652.html?ref=202008nicoad&conductorId=3405&frameMasterId=7'">{{ item.text }}</span>
-            <span v-if="item.url == 'https://blog.nicovideo.jp/niconews/124652.html?ref=202008nicoad&conductorId=3405&frameMasterId=7'">ﾆｺﾆｺﾌﾟﾚﾐｱﾑ 年額払いで入会すると1200pt広告チケット！</span>
+            <img :src="item.bannerImageUrl" alt="" srcset="" crossorigin>
           </a>
         </div>
       </div>
@@ -17,6 +13,9 @@
         <p>データの取得に失敗しました</p>
       </div>
     </div>
+    <hr>
+    <small><a href="https://nicoad.nicovideo.jp/campaign" target="_blank" rel="noopener noreferrer">公式のキャンペーン一覧ページで見る</a></small>
+    <small>ニコニ広告ex. CanpaignWebClient 20220204</small>
   </div>
 </template>
 
@@ -80,10 +79,19 @@ body{
       text-decoration: none;
       color: #252525;
       background-color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 3px #F97F2850;
       transition: all .1s;
+      display: flex;
+      align-items: center;
+
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+      }
+      span{
+        flex: 1;
+      }
 
       &:hover{
         transform: translateY(-2px);
@@ -101,6 +109,18 @@ body{
       border-radius: 5px;
       box-shadow: 0 0 3px #f0000050;
       text-align: center;
+    }
+  }
+
+  small{
+    display: block;
+    margin: .5rem 1rem;
+
+    a{
+      color: #0080ff;
+      &:hover{
+        text-decoration: none;
+      }
     }
   }
 }

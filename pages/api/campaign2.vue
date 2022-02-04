@@ -4,18 +4,8 @@
     <div class="campaign_data">
       <div class="item_wrap" v-if="campaign_data && campaign_data.meta.status == 200">
         <div class="item" v-for="item in campaign_data.data.conductors" :key="item">
-          <!-- <a :href="item.url">
-            <img :src="item.bannerImageUrl" :alt="item.text" srcset="">
-          </a> -->
           <a :href="item.url" target="_blank" rel="noopener noreferrer">
-            <div class="thumbarea">
-              <img :src="item.bannerImageUrl" alt="" srcset="" crossorigin>
-            </div>
-            <div class="thumbarea">
-              <img :src="'https://api.nekozuki.me/api/ogpimg?url='+item.url" alt="" srcset="" crossorigin>
-            </div>
-            <span v-if="item.url !== 'https://blog.nicovideo.jp/niconews/124652.html?ref=202008nicoad&conductorId=3405&frameMasterId=7'">{{ item.text }}</span>
-            <span v-if="item.url == 'https://blog.nicovideo.jp/niconews/124652.html?ref=202008nicoad&conductorId=3405&frameMasterId=7'">ﾆｺﾆｺﾌﾟﾚﾐｱﾑ 年額払いで入会すると1200pt広告チケット！</span>
+            <img :src="item.bannerImageUrl" alt="" srcset="" crossorigin>
           </a>
         </div>
       </div>
@@ -23,6 +13,8 @@
         <p>データの取得に失敗しました</p>
       </div>
     </div>
+    <hr>
+    <small>ニコニ広告ex. CanpaignWebClient 20220204</small>
   </div>
 </template>
 
@@ -86,25 +78,15 @@ body{
       text-decoration: none;
       color: #252525;
       background-color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 3px #F97F2850;
       transition: all .1s;
       display: flex;
       align-items: center;
 
-      .thumbarea{
-        width: 100px !important;
-        margin-right: 10px;
-        border: 1px solid #ccc;
-        aspect-ratio: 16 / 9;
-
-        img{
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border: none;
-        }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
       }
       span{
         flex: 1;
@@ -127,6 +109,10 @@ body{
       box-shadow: 0 0 3px #f0000050;
       text-align: center;
     }
+  }
+
+  small{
+    margin-left: 1rem;
   }
 }
 </style>
