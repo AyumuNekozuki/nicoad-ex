@@ -7,9 +7,9 @@
           <!-- <a :href="item.url">
             <img :src="item.bannerImageUrl" :alt="item.text" srcset="">
           </a> -->
-          <a :href="item.bannerImageUrl" target="_blank" rel="noopener noreferrer">
+          <a :href="item.url" target="_blank" rel="noopener noreferrer">
             <div class="thumbarea">
-              <img :src="item.url" alt="" srcset="" crossorigin>
+              <img :src="item.bannerImageUrl" alt="" srcset="" crossorigin>
             </div>
             <div class="thumbarea">
               <img :src="'https://api.nekozuki.me/api/ogpimg?url='+item.url" alt="" srcset="" crossorigin>
