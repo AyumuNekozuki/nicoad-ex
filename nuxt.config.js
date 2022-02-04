@@ -6,7 +6,8 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { 'http-equiv': 'origin-trial', content: 'AmIWMhsXUBBPyInXaOnehOlXGNlo9Rh9kMG51HDKLP9cvrpKIkomyUfpfX+0PY5EdvmNsyCwykVRXBOYyaXOrAUAAAB+eyJvcmlnaW4iOiJodHRwczovL25pY29hZGV4Lm5la296dWtpLm1lOjQ0MyIsImZlYXR1cmUiOiJVbnJlc3RyaWN0ZWRTaGFyZWRBcnJheUJ1ZmZlciIsImV4cGlyeSI6MTY1ODg3OTk5OSwiaXNTdWJkb21haW4iOnRydWV9'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
